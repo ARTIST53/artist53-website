@@ -1,0 +1,11 @@
+ARTIST53 iPad GitHub Build
+
+This version keeps every HTML file, CSS file, and portfolio image in the repository root. It avoids the iPad folder upload problem.
+
+Upload every file from this folder into the main level of the GitHub repository.
+
+Keep your existing artist53-logo.png, artist53-icon.png, favicon.png, font files, script.js, robots.txt, sitemap.xml, and site.webmanifest.
+
+Replace the existing HTML pages and styles.css when GitHub asks.
+
+The portfolio image files are new and should be added beside index.html.
