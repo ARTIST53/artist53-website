@@ -1,12 +1,1 @@
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll(".reveal").forEach((element) => {
-  observer.observe(element);
-});
+document.querySelectorAll('.figure img').forEach(i=>i.onclick=()=>{document.querySelector('.lightbox img').src=i.src;document.querySelector('.lightbox').classList.add('open')});document.querySelector('.lightbox button').onclick=()=>document.querySelector('.lightbox').classList.remove('open');document.querySelector('.lightbox').onclick=e=>{if(e.target.classList.contains('lightbox'))e.currentTarget.classList.remove('open')};document.onkeydown=e=>{if(e.key==='Escape')document.querySelector('.lightbox').classList.remove('open')}
