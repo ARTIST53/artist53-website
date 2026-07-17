@@ -1,7 +1,4 @@
-ARTIST53 HUMAN TOUCH BUILD
+ARTIST53 complete website build
 
-Open index.html first.
-
-Pages: index.html, brand-identity.html, illustration.html, sticky-paws.html, albo.html, about.html
-
-Contact: justin@artist53.com
+Upload every HTML file in this folder to the root of the GitHub repository.
+All page images and fonts are embedded, so no separate image folder is required.
