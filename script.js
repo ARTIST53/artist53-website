@@ -1,1 +1,8 @@
-document.querySelectorAll('.figure img').forEach(i=>i.onclick=()=>{document.querySelector('.lightbox img').src=i.src;document.querySelector('.lightbox').classList.add('open')});document.querySelector('.lightbox button').onclick=()=>document.querySelector('.lightbox').classList.remove('open');document.querySelector('.lightbox').onclick=e=>{if(e.target.classList.contains('lightbox'))e.currentTarget.classList.remove('open')};document.onkeydown=e=>{if(e.key==='Escape')document.querySelector('.lightbox').classList.remove('open')}
+
+const trigger=document.getElementById('navTrigger');
+const menu=document.getElementById('navMenu');
+function closeMenu(){menu.classList.remove('open');trigger.setAttribute('aria-expanded','false')}
+trigger.addEventListener('click',e=>{e.stopPropagation();const open=menu.classList.toggle('open');trigger.setAttribute('aria-expanded',String(open))});
+menu.addEventListener('click',e=>e.stopPropagation());
+document.addEventListener('click',closeMenu);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
