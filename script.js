@@ -16,6 +16,8 @@ globalStyles.textContent=`
   .logo-tile:hover{transform:translateY(-5px);border-color:var(--yellow,#ffc31c)}
   .logo-tile-image{aspect-ratio:1/1;padding:8px!important;overflow:hidden}
   .logo-tile-image img{width:100%;height:100%;object-fit:contain;transform:scale(1.04)}
+  .logo-tile[href="logo-left-side-lion.html"] .logo-tile-image{position:relative;background:#000!important}
+  .logo-tile[href="logo-left-side-lion.html"] .logo-tile-image::after{content:"";position:absolute;left:20.6%;top:0;bottom:0;width:1.8%;background:#000;z-index:2;pointer-events:none}
   .logo-tile-copy{padding:20px}
   .logo-tile-copy h3{font-size:2rem}
   @media(max-width:900px){.logo-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
