@@ -14,11 +14,12 @@ globalStyles.textContent=`
   .logo-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
   .logo-tile{overflow:hidden;transition:transform .25s ease,border-color .25s ease}
   .logo-tile:hover{transform:translateY(-5px);border-color:var(--yellow,#ffc31c)}
-  .logo-tile-image{aspect-ratio:1/1;padding:24px}
+  .logo-tile-image{aspect-ratio:1/1;padding:8px!important;overflow:hidden}
+  .logo-tile-image img{width:100%;height:100%;object-fit:contain;transform:scale(1.04)}
   .logo-tile-copy{padding:20px}
   .logo-tile-copy h3{font-size:2rem}
   @media(max-width:900px){.logo-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media(max-width:620px){.logo-gallery{grid-template-columns:1fr}.logo-tile-image{padding:20px}}
+  @media(max-width:620px){.logo-gallery{grid-template-columns:1fr}.logo-tile-image{padding:4px!important}}
 `;
 document.head.appendChild(globalStyles);
 
