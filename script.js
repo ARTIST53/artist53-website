@@ -28,7 +28,7 @@ if(footer){
   footer.innerHTML=`
     <div class="signature-footer">
       <a class="signature-footer-icon" href="index.html" aria-label="ARTIST53 home">
-        <img src="artist53-mark-white.png" alt="ARTIST53 icon">
+        <span class="signature-footer-gold-mark" aria-hidden="true"></span>
       </a>
       <h2>Making Your Image A Reality</h2>
       <a class="signature-footer-email" href="mailto:justin@artist53.com">justin@artist53.com</a>
@@ -56,11 +56,13 @@ if(footer){
       height:92px;
       margin-bottom:28px;
     }
-    .signature-footer-icon img{
+    .signature-footer-gold-mark{
       display:block;
       width:100%;
       height:100%;
-      object-fit:contain;
+      background:var(--yellow,#ffc31c);
+      -webkit-mask:url('artist53-mark-white.png') center/contain no-repeat;
+      mask:url('artist53-mark-white.png') center/contain no-repeat;
     }
     .signature-footer h2{
       margin:0;
