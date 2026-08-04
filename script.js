@@ -42,7 +42,7 @@ if(footer){
   footer.innerHTML=`
     <div class="signature-footer">
       <a class="signature-footer-icon" href="index.html" aria-label="ARTIST53 home">
-        <img class="signature-footer-gold-mark" src="artist53-mark-white.png?v=20260804-1900" alt="ARTIST53 hand and pencil icon">
+        <img class="signature-footer-gold-mark" src="artist53-hand-pencil-gold.svg?v=20260804-1912" alt="ARTIST53 hand and pencil icon">
       </a>
       <h2>Making Your Image A Reality</h2>
       <a class="signature-footer-email" href="mailto:justin@artist53.com">justin@artist53.com</a>
@@ -75,7 +75,7 @@ if(footer){
       width:100%;
       height:100%;
       object-fit:contain;
-      filter:brightness(0) saturate(100%) invert(80%) sepia(98%) saturate(1222%) hue-rotate(345deg) brightness(104%) contrast(104%);
+      filter:none;
     }
     .signature-footer h2{
       margin:0;
