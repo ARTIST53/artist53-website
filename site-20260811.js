@@ -48,7 +48,7 @@ if(footer){
   footer.innerHTML=`
     <div class="site-footer">
       <a class="site-footer-icon" href="index.html" aria-label="ARTIST53 home">
-        <img src="artist53-footer-icon.png?v=20260811-1823" alt="ARTIST53 icon">
+        <img src="artist53-footer-icon-final.webp?v=20260811-1828" alt="ARTIST53 icon">
       </a>
       <nav class="site-footer-socials" aria-label="ARTIST53 social media">
         <a href="https://www.instagram.com/artist053/" target="_blank" rel="noopener noreferrer">Instagram</a>
