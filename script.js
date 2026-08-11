@@ -32,7 +32,7 @@ styles.textContent=`
 @media(max-width:620px){.logo-gallery{grid-template-columns:1fr}.logo-tile-image{padding:14px!important}}
 footer{padding:72px 18px 52px!important;border-top:1px solid var(--line,#2a2a2a);background:#050505!important}
 .site-footer{width:min(760px,100%);margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center}
-.site-footer-icon{display:block;width:min(190px,45vw);margin-bottom:24px}
+.site-footer-icon{display:block;width:min(180px,44vw);margin-bottom:24px}
 .site-footer-icon img{display:block;width:100%;height:auto;object-fit:contain}
 .site-footer-socials{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:4px 0 0}
 .site-footer-socials a{color:var(--yellow,#ffc31c);font-family:Bebas,Arial,sans-serif;font-size:1.35rem;letter-spacing:.06em;text-transform:uppercase}
@@ -48,7 +48,7 @@ if(footer){
   footer.innerHTML=`
     <div class="site-footer">
       <a class="site-footer-icon" href="index.html" aria-label="ARTIST53 home">
-        <img src="artist53-footer-icon-final.webp?v=20260811-1828" alt="ARTIST53 icon">
+        <img src="artist53-icon.png?v=20260811-1836" alt="ARTIST53 icon">
       </a>
       <nav class="site-footer-socials" aria-label="ARTIST53 social media">
         <a href="https://www.instagram.com/artist053/" target="_blank" rel="noopener noreferrer">Instagram</a>
