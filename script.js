@@ -24,7 +24,7 @@ styles.textContent=`
 .logo-tile{overflow:hidden;transition:transform .25s ease,border-color .25s ease}
 .logo-tile:hover{transform:translateY(-5px);border-color:var(--yellow,#ffc31c)}
 .logo-tile-image{aspect-ratio:1/1;padding:18px!important;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff}
-.logo-tile-image img{width:100%;height:100%;object-fit:contain;transform:none}
+.logo-tile-image img{display:block;width:100%;height:100%;object-fit:contain;transform:none}
 .logo-tile[href="logo-left-side-lion.html"] .logo-tile-image{background:#000!important}
 .logo-tile-copy{padding:20px}
 .logo-tile-copy h3{font-size:2rem}
@@ -48,7 +48,7 @@ if(footer){
   footer.innerHTML=`
     <div class="site-footer">
       <a class="site-footer-icon" href="index.html" aria-label="ARTIST53 home">
-        <img src="artist53-footer-icon-final.webp?v=20260811-1810" alt="ARTIST53 icon">
+        <img src="artist53-footer-icon.png?v=20260811-1823" alt="ARTIST53 icon">
       </a>
       <nav class="site-footer-socials" aria-label="ARTIST53 social media">
         <a href="https://www.instagram.com/artist053/" target="_blank" rel="noopener noreferrer">Instagram</a>
