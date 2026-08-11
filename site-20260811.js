@@ -51,7 +51,7 @@ if(footer){
       </a>
       <nav class="site-footer-socials" aria-label="ARTIST53 social media">
         <a href="https://www.instagram.com/artist053/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.youtube.com/results?search_query=ARTIST53" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://youtube.com/@artist053?si=jIRie_tqxgwjsKy1" target="_blank" rel="noopener noreferrer">YouTube</a>
         <a href="https://www.facebook.com/Artist53-517267671632498/" target="_blank" rel="noopener noreferrer">Facebook</a>
       </nav>
       <a class="site-footer-email" href="mailto:justin@artist53.com">justin@artist53.com</a>
