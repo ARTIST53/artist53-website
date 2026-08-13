@@ -1,0 +1,43 @@
+.logo-page .logo-hero{padding:0;border-bottom:1px solid var(--line)}
+.logo-page .logo-hero-grid{min-height:620px;display:grid;grid-template-columns:minmax(0,1fr);align-items:center;padding:86px 0}
+.logo-page .logo-hero h1{max-width:980px;font-size:clamp(5rem,10vw,9.5rem);color:var(--yellow)}
+.logo-page .logo-lead{max-width:780px;margin:24px 0 6px;color:var(--muted);font-size:1.15rem;line-height:1.75}
+.logo-page .logo-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.logo-page .logo-hero-points{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid #262626;color:#d9d9d9;font-family:Bebas,Arial,sans-serif;font-size:1.15rem;letter-spacing:.06em;text-transform:uppercase}
+.logo-page .logo-hero-points span::before{content:'•';margin-right:10px;color:var(--yellow)}
+.logo-page .portfolio-head{display:flex;justify-content:space-between;gap:36px;align-items:end;margin-bottom:34px}
+.logo-page .portfolio-head .intro{margin-bottom:0}
+.logo-page .logo-gallery{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:22px!important}
+.logo-page .logo-tile{display:flex;flex-direction:column;min-width:0;background:#101010;border:1px solid #2d2d2d;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+.logo-page a.logo-tile:hover{transform:translateY(-6px);border-color:var(--yellow)}
+.logo-page .logo-tile-image{aspect-ratio:1/1!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:26px!important;background:#fff!important;overflow:hidden}
+.logo-page .logo-tile[href="logo-left-side-lion.html"] .logo-tile-image{background:#000!important}
+.logo-page .logo-tile-image img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;transform:none!important}
+.logo-page .logo-tile-copy{display:flex;flex-direction:column;gap:8px;flex:1;padding:20px 22px 22px!important}
+.logo-page .logo-tile-copy h3{font-size:clamp(1.7rem,2.5vw,2.25rem)!important;color:var(--yellow);line-height:1}
+.logo-page .logo-card-meta{margin:0;color:#8f8f8f;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.logo-page a.logo-tile .logo-card-meta{color:#d5d5d5}
+.logo-page .featured-logo-studies{background:#0a0a0a}
+.logo-page .logo-study-grid{display:grid;gap:24px;margin-top:38px}
+.logo-page .logo-study{display:grid;grid-template-columns:1fr 1fr;min-height:420px;border:1px solid #2b2b2b;background:#0f0f0f;overflow:hidden}
+.logo-page .logo-study.reverse .logo-study-image{order:2}
+.logo-page .logo-study-image{min-height:380px;display:flex;align-items:center;justify-content:center;background:#fff;padding:44px}
+.logo-page .logo-study-image.dark{background:#000}
+.logo-page .logo-study-image img{width:100%;height:100%;object-fit:contain}
+.logo-page .logo-study-copy{display:flex;flex-direction:column;justify-content:center;padding:48px}
+.logo-page .logo-study-copy .number{font-family:Bebas,Arial,sans-serif;font-size:1.4rem;color:var(--yellow);letter-spacing:.1em}
+.logo-page .logo-study-copy h3{margin:12px 0 18px;font-size:clamp(3rem,5vw,5.3rem);color:var(--yellow)}
+.logo-page .logo-study-copy p{max-width:560px;margin:0;color:var(--muted);font-size:1.02rem;line-height:1.75}
+.logo-page .logo-study-copy .btn{align-self:flex-start;margin-top:24px}
+.logo-page .logo-services{background:#f1f1f1;color:#111}
+.logo-page .logo-services .title{color:#111}
+.logo-page .logo-services .intro{color:#555}
+.logo-page .logo-service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+.logo-page .logo-service-grid article{min-height:220px;padding:26px;background:#fff;border:1px solid #d8d8d8}
+.logo-page .logo-service-grid span{font-family:Bebas,Arial,sans-serif;color:#9a6c00;font-size:1.3rem;letter-spacing:.08em}
+.logo-page .logo-service-grid h3{margin:14px 0 12px;color:#111;font-size:2rem}
+.logo-page .logo-service-grid p{margin:0;color:#555;line-height:1.65}
+.logo-page .process article{min-height:230px}
+.logo-page .cta{border-bottom:1px solid var(--line)}
+@media(max-width:980px){.logo-page .logo-gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important}.logo-page .logo-study{grid-template-columns:1fr}.logo-page .logo-study.reverse .logo-study-image{order:0}.logo-page .logo-service-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.logo-page .logo-hero-grid{min-height:auto;padding:68px 0}.logo-page .logo-hero h1{font-size:clamp(4.5rem,19vw,7rem)}.logo-page .portfolio-head{display:block}.logo-page .logo-gallery{grid-template-columns:1fr!important}.logo-page .logo-tile-image{padding:20px!important}.logo-page .logo-study-copy{padding:32px 24px}.logo-page .logo-study-image{min-height:300px;padding:28px}.logo-page .logo-service-grid{grid-template-columns:1fr}.logo-page .logo-hero-points{display:grid;gap:10px}.logo-page .btn{width:100%;text-align:center;margin-right:0}}
