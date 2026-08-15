@@ -1,0 +1,1 @@
+Recovery point before restoring artist53.com after accidental cleanup. Current head preserved in history. Restore target: 37452252221bb96b46d0b8dd14a0eddfa86cb712.
