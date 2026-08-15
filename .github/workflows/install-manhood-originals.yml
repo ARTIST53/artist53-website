@@ -3,7 +3,7 @@ name: Install Manhood Originals
 on:
   push:
     paths:
-      - 'manhood-upload/READY'
+      - 'manhood-fetch/links.env'
 
 permissions:
   contents: write
@@ -15,30 +15,62 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Check ready marker
-        id: ready
-        shell: bash
-        run: |
-          if [ ! -f manhood-upload/READY ]; then
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Rebuild clean Manhood assets
-        if: steps.ready.outputs.ready == 'true'
+      - name: Fetch original Manhood assets
         shell: bash
         run: |
           set -euo pipefail
-          cat manhood-upload/part-* > /tmp/manhood.b64
-          base64 --decode /tmp/manhood.b64 > /tmp/manhood-assets.zip
-          echo "9b5ac475008c7de1302451baac80744cbae768a52645ec759d6e1a105d36a9c7  /tmp/manhood-assets.zip" | sha256sum -c -
-          unzip -o /tmp/manhood-assets.zip -d .
-          rm -rf manhood-upload manhood-b64
+          source manhood-fetch/links.env
+
+          curl -L --fail --retry 2 "$SKETCHES" -o manhood-sketches.jpg
+          curl -L --fail --retry 2 "$SYSTEM" -o manhood-system.jpg
+
+          curl -L --fail --retry 2 "$FULL_BLACK" -o manhood-full-black.png
+          curl -L --fail --retry 2 "$FULL_GOLD" -o manhood-full-gold.png
+          curl -L --fail --retry 2 "$FULL_RED" -o manhood-full-red.png
+          curl -L --fail --retry 2 "$FULL_BROWN" -o manhood-full-brown.png
+          curl -L --fail --retry 2 "$FULL_WHITE" -o manhood-full-white.png
+
+          curl -L --fail --retry 2 "$WORD_BLACK_GOLD" -o manhood-wordmark-black-gold.png
+          curl -L --fail --retry 2 "$WORD_GOLD" -o manhood-wordmark-gold.png
+          curl -L --fail --retry 2 "$WORD_RED" -o manhood-wordmark-red.png
+          curl -L --fail --retry 2 "$WORD_BROWN" -o manhood-wordmark-brown.png
+
+          cat manhood-fetch/proof-* > /tmp/manhood-proof.b64
+          base64 --decode /tmp/manhood-proof.b64 > manhood-proof.jpg
+          echo "383ff74027d0e519d16739992727c3fc8b48f7b29c5db8c815868cb27ef41ee4  manhood-proof.jpg" | sha256sum -c -
+
+          file manhood-sketches.jpg manhood-system.jpg manhood-proof.jpg manhood-full-black.png manhood-full-white.png
+
+          rm -f manhood-full-black.jpg manhood-full-gold.jpg manhood-full-red.jpg manhood-full-brown.jpg manhood-full-white.jpg
+          rm -f manhood-wordmark-black-gold.jpg manhood-wordmark-gold.jpg manhood-wordmark-red.jpg manhood-wordmark-brown.jpg
           rm -f manhood-assets-loader.js manhood-assets-sprite.webp manhood-inline.css manhood-master-sprite.jpg manhood-sprite-fixed.jpg
-          rm -f manhood-data-*.txt manhood-proof-directions.webp manhood-sketch-exploration.webp
+          rm -f manhood-data-*.txt manhood-proof-directions.webp manhood-sketch-exploration.webp manhood-system.jpeg
           rm -f _tmp_should_not_use.txt
+          rm -rf manhood-upload manhood-b64 manhood-fetch
+
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('logo-manhood-basic-training.html')
+          s=p.read_text()
+          replacements={
+            'manhood-full-black.jpg':'manhood-full-black.png',
+            'manhood-full-gold.jpg':'manhood-full-gold.png',
+            'manhood-full-red.jpg':'manhood-full-red.png',
+            'manhood-full-brown.jpg':'manhood-full-brown.png',
+            'manhood-full-white.jpg':'manhood-full-white.png',
+            'manhood-wordmark-black-gold.jpg':'manhood-wordmark-black-gold.png',
+            'manhood-wordmark-gold.jpg':'manhood-wordmark-gold.png',
+            'manhood-wordmark-red.jpg':'manhood-wordmark-red.png',
+            'manhood-wordmark-brown.jpg':'manhood-wordmark-brown.png',
+          }
+          for old,new in replacements.items():
+              s=s.replace(old,new)
+          s=s.replace('v=20260814-individual2','v=20260814-originals')
+          p.write_text(s)
+          PY
+
           git config user.name "ARTIST53 Site Build"
           git config user.email "actions@users.noreply.github.com"
           git add -A
-          git commit -m "Install clean Manhood assets and remove failed loaders"
+          git commit -m "Install original Manhood assets from source files"
           git push
