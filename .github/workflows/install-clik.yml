@@ -1,0 +1,41 @@
+name: Install CLIK CLIK BANG Assets
+
+on:
+  push:
+    paths:
+      - '.github/workflows/install-clik.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch original CLIK assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 2 'https://uc8c0c3ddf0621871ee6c414356c.dl.dropboxusercontent.com/cd/0/get/DGPTVDaBFM2cvSe0TZmYt69TJALyZOBe0DJHrJq4_G3XGZzGZvo2GL2f4Ri-DfDWfhvYv5kJhydbNeaJRYnRFn6_3pI2ZCOOkW_zZgPpT-P_qkpxv48E7URObi7x4iuQJzmUS1mVGe9aSPUr19H00kFzRsG2xAaTAPZz1fcG2rin-g/file?c_luid=f5ddbb2e' -o clik-symbol-black.png
+          curl -L --fail --retry 2 'https://uc23836e02d5a029e04fe1e17dbf.dl.dropboxusercontent.com/cd/0/get/DGPnk4rTEXWuh4SJoE_LBP-KFGnXVs05o_MK-mTXUf_q4neOTzzTCz3TtwI4VzViqUc3Nf6n8dx6Jz8W6Sul2IopxFYTZRpN4CwdChveIo8H6T6keh2lHIkYNu8IrYJJc_Hb9PGhH3HTZiTW7Oaa5AEaz4rBHxhpIy5voy6lZ46X8g/file?c_luid=f5ddbb2e' -o clik-symbol-red.png
+          curl -L --fail --retry 2 'https://ucfac76a8e5bb884c498d1246de0.dl.dropboxusercontent.com/cd/0/get/DGMo1k2fANj77nFnj3tGZAvygCiqkKSbJCHa1fYqJT1qN__5_S4GLrAPg28NuizkUpjWao9BCwjxSzniED8y4h9FUhTleepwWYKAH7XaIEJHdQeU65zfWHCJ_Q-LnuShQVMuJpgwgNBiNNs9BppHOcYsjphPmnrD8vz0TGtwOk-pmQ/file?c_luid=f5ddbb2e' -o clik-wordmark-red.png
+          curl -L --fail --retry 2 'https://uc17e80282d94c030d52e7e0b71a.dl.dropboxusercontent.com/cd/0/get/DGPWQfcJR2EiUJsp5GpYkXLCKn77FO2EjqeKt4tX1azqxIcf30HyAqR8bBjLj6wGi821rY4IeXnyH6KD76hT8HsR3Vm2wRrvJRK-F1Fgv_UBS5Is0s72ZzddqXn2tNeKohrL0VQjDECF2iAt8gYqbmTq7hv3tayQh0ktlLCi8Ts0Gg/file?c_luid=f5ddbb2e' -o clik-full-logo-red.png
+          curl -L --fail --retry 2 'https://uc6b1ea2dc20a727ccfb9d136a63.dl.dropboxusercontent.com/cd/0/get/DGNOiFmCBycd9NiJ-mSQvavzzSAdPze8xRic8yI5Fu9tvLclPpzP2dQzWgxs2iRC0SJOJJsjpYwDbQqRKyBiVD00CjkNYGakSdbhjeJQ1u6IWT5lR0dCQ5pUHbJnhP83vq-mOYfTrfsZdRfUU5PmApLYIgJ-VX7OvDpcpOdRmY4L8A/file?c_luid=f5ddbb2e' -o clik-full-logo-white.png
+          curl -L --fail --retry 2 'https://uc934c5220cee6b3a5c70bf10634.dl.dropboxusercontent.com/cd/0/get/DGP5H10qobtgQ3_L_1LWHL3v0AH94dXNutF_Yy4-qmvUKVDlk-vqOrGHy8gRMxi5yBzCPnk66vcSxhYNSauPWz2uxkSeCWeO3oC2Ip31wf0n_D2cGr3UYfNYlrI_QSWvbNW_sOAmS_cvsEofJWIutFFJeCIjK1buqclqT6PcR4gtig/file?c_luid=f5ddbb2e' -o clik-symbol-white.png
+          curl -L --fail --retry 2 'https://ucc0f054c6fc87dfa6639abf0305.dl.dropboxusercontent.com/cd/0/get/DGN3M82fYMLnzEuynWGkOdu_rBhmDnvi_qR9oitkmCHU--V2rq6o0G1qapQsYlngETuREZnZ8HzWShetNLKQGFoiIwJzm49lsyTjDEODw1uSqJUMDUz90u37eLhlNHq9HJRzv6YlQv-WI6i6uSiB0vvCYSdGOKvtCiYEs7G248Spqg/file?c_luid=f5ddbb2e' -o clik-storefront-day.jpg
+          curl -L --fail --retry 2 'https://uc9dc46c9fabda106c91702df6e6.dl.dropboxusercontent.com/cd/0/get/DGODNTesnpyPsp-Hu1LlHm29DCEWxinRiFKTF5vjBFHqQO9LmnhPBcFVMBOT0vDbEa9dUK7NgU6JMBjvbl6DSK89ImF0GyIoyX8uLFo1xTR4zsYMaux8fhiqDE_0BV11Y-CsHD4K6UhMKziDE_e5Yl7BajshctBuCawAfRAIZBmi0w/file?c_luid=f5ddbb2e' -o clik-storefront-night.jpg
+          curl -L --fail --retry 2 'https://uc41574cf8d514c81da480a703e4.dl.dropboxusercontent.com/cd/0/get/DGMaliEQOuIgt1RgII1Psck9zaO7cG4DcTWLtpM0y56TfXMFuRMDR_G2kOtX-I39-hPNReA8jUNqhHX4r5Nw_IS5zxjcmet6ToLDCqqxoxRw_qvdsHKNivvoI_FNIfiF7MDi_Oh0nQa4-XMLlNTRwZFbVeRHIVjV7OP12qcbYBn5Ug/file?c_luid=f5ddbb2e' -o clik-opening-day-promo.jpg
+
+          file clik-symbol-black.png clik-symbol-red.png clik-full-logo-red.png clik-storefront-day.jpg clik-opening-day-promo.jpg
+
+          rm -f _test.txt clik-symbol-black.svg clik-symbol-black.webp.b64 clik-clik-bang-test.html clik-build-note.txt
+          rm -f .github/workflows/install-clik.yml
+
+          git config user.name 'ARTIST53 Site Build'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -A
+          git commit -m 'Install original CLIK CLIK BANG case study assets'
+          git push
