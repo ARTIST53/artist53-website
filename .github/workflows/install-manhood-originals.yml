@@ -24,15 +24,15 @@ jobs:
           else
             echo "ready=true" >> "$GITHUB_OUTPUT"
           fi
-      - name: Rebuild original Manhood assets
+      - name: Rebuild clean Manhood assets
         if: steps.ready.outputs.ready == 'true'
         shell: bash
         run: |
           set -euo pipefail
           cat manhood-upload/part-* > /tmp/manhood.b64
-          base64 --decode /tmp/manhood.b64 > /tmp/manhood-originals.zip
-          echo "69b9e9fdef6ccc8b10e29b2457258cc439736cde6096b39aa700b135e33eb85b  /tmp/manhood-originals.zip" | sha256sum -c -
-          unzip -o /tmp/manhood-originals.zip -d .
+          base64 --decode /tmp/manhood.b64 > /tmp/manhood-assets.zip
+          echo "9b5ac475008c7de1302451baac80744cbae768a52645ec759d6e1a105d36a9c7  /tmp/manhood-assets.zip" | sha256sum -c -
+          unzip -o /tmp/manhood-assets.zip -d .
           rm -rf manhood-upload manhood-b64
           rm -f manhood-assets-loader.js manhood-assets-sprite.webp manhood-inline.css manhood-master-sprite.jpg manhood-sprite-fixed.jpg
           rm -f manhood-data-*.txt manhood-proof-directions.webp manhood-sketch-exploration.webp
@@ -40,5 +40,5 @@ jobs:
           git config user.name "ARTIST53 Site Build"
           git config user.email "actions@users.noreply.github.com"
           git add -A
-          git commit -m "Install original Manhood assets and remove failed loaders"
+          git commit -m "Install clean Manhood assets and remove failed loaders"
           git push
