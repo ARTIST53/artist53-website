@@ -1,0 +1,40 @@
+name: Install CLIK Originals
+
+on:
+  push:
+    paths:
+      - '.github/workflows/install-clik-originals.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download original CLIK files
+        run: |
+          set -euo pipefail
+          curl -fL 'https://uc89fcdb12d233523a6d779a29f1.dl.dropboxusercontent.com/cd/0/get/DGM_3piI6PkpwvyoMlA3Cb_XsZ_0GwxPZzXu3-0C-WqKObJBoWRibUpGLhS6BdnqP69WVJNniJcUPJfpfBoL0sJHVa0vB6tpRE6P9zvzWmpipO9dSPC98YCZkq9f91M_ngf1t-tPl8xRG9kEfudEZhB-1AwUByV-fmpBtYmc3d92Vw/file?c_luid=f5ddbb2e' -o clik-full-logo.png
+          curl -fL 'https://uc1466da486f50a2669f7c86269b.dl.dropboxusercontent.com/cd/0/get/DGOQfwChm2_lw9LCjWcVwxXqfbNqD2L0UYNtGmxEVk7cfLZraHhtyDuYF2Lw8eSM2D0AiToemfJGDXJbRy4u_Wkx0bfA-DI0ajq2hEXl-DK9G2FJJJ4M8aB2kv4pRYgq-tsa3_z9V2K9WVQYDxm5ors46A_xJWDfV5k3eCEyw_Km9w/file?c_luid=f5ddbb2e' -o clik-symbol-red.png
+          curl -fL 'https://uc332896cc034c53fa83d41a8b0b.dl.dropboxusercontent.com/cd/0/get/DGOK8tfujJNKqFnmHEcPGuwVAyKfXZxF-rzSRjJRk_msZLbo4xf3wfeXBlnqflfqHXxIyjffpAQrfYQyX8807yk70daUDB_La1VF5rT1umcQ47H-hCnvSlCgo4vYhFesDbI3BbBigwYf1KTm3ShJLdL-NPCaRGx_gfKu8orXApOeMg/file?c_luid=f5ddbb2e' -o clik-symbol-black.png
+          curl -fL 'https://uc9ed299be57040d64dfaf82c94e.dl.dropboxusercontent.com/cd/0/get/DGPXmq28Gtx0qW14eA05Eznt0J9Sos0y8KyFq6P7RV5tUQ-DCWqvimgkEr_59igJBUrA1Ea3b26y-hMz-p9AJq7M0UTkZfJren2dmVbXrrgRbCiM7x7P0Oz-wNQ-hyIizUcZ8V18PkI6tYtPinGZKqxhdlA-jlast2tl-CUOhYfFqQ/file?c_luid=f5ddbb2e' -o clik-storefront-day.jpg
+          curl -fL 'https://uc99f27d8df0f77ad734121cc732.dl.dropboxusercontent.com/cd/0/get/DGNzShbB_CshpqhJIp_pplhLke67ugUDiyq8pBnBC-ZsmteMunu6Z55iPeXvjAQBDb1tILv05uaiNCZlOjLxCVwn0fM_IGW_1cKZ-nh02QpXDZV7SXlT7P9nlqPfemMaamp_PRuK4kYCWfRGabaSJU_9BDLyNmDHqpC-hfiE-aQ0nQ/file?c_luid=f5ddbb2e' -o clik-storefront-night.jpg
+          curl -fL 'https://ucb845822928dfd5213b0836bc53.dl.dropboxusercontent.com/cd/0/get/DGMNooPBnm6MPbdu_WhX201uYc87J72hfGRjImZqoEsWs7Bs7hur61BQHVI_eyop6jlOjoeQAnhKsX4i6GC_xJTlMizhBr1i0erUZCBJpVuhrPKtXlGu7IsZXQJyV9xXx5li4xmJR-D6ZTfp0gc7Wtk6YrjtNxTAyHJdg0Pbx_qWNQ/file?c_luid=f5ddbb2e' -o clik-opening-day.jpg
+          curl -fL 'https://ucea8d91453ac5cf8d20ba1b787e.dl.dropboxusercontent.com/cd/0/get/DGNmOYwyoHH8mCus8gqWcSGwn5f7-KmnQYYkdxKOucy3jcxtQAvjkyrxamKVaNC1Sv60oXFBFwMiVHBJluxieg7YrQqJZa2fdSKpErgHRJSzr6Rn_m9yuj6v1OCXx8rpTqlDrO4TPeC4DzibrenxohVYH3Igf2Cr2CWvVTGH2-PsEw/file?c_luid=f5ddbb2e' -o clik-classes.jpg
+          file clik-full-logo.png clik-symbol-red.png clik-symbol-black.png clik-storefront-day.jpg clik-storefront-night.jpg clik-opening-day.jpg clik-classes.jpg
+      - name: Clean old CLIK image attempts
+        run: |
+          rm -f clik-identity-sheet.webp clik-opening-day.webp clik-classes.webp clik-storefront-day.webp clik-storefront-night.webp clik-opening-day-promo.webp
+          rm -f _clik_install_note.txt _clik_identity_b64.txt
+          rm -f .github/workflows/install-clik-originals.yml
+      - name: Commit originals
+        run: |
+          git config user.name 'ARTIST53'
+          git config user.email 'justin.anderson25@gmail.com'
+          git add -A
+          git commit -m 'Install original CLIK CLIK BANG images'
+          git push
