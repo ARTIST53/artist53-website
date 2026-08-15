@@ -22,6 +22,7 @@ jobs:
           source manhood-fetch/links.env
 
           curl -L --fail --retry 2 "$SKETCHES" -o manhood-sketches.jpg
+          curl -L --fail --retry 2 "$CHOSEN" -o manhood-proof.jpg
           curl -L --fail --retry 2 "$SYSTEM" -o manhood-system.jpg
 
           curl -L --fail --retry 2 "$FULL_BLACK" -o manhood-full-black.png
@@ -35,11 +36,7 @@ jobs:
           curl -L --fail --retry 2 "$WORD_RED" -o manhood-wordmark-red.png
           curl -L --fail --retry 2 "$WORD_BROWN" -o manhood-wordmark-brown.png
 
-          cat manhood-fetch/proof-* > /tmp/manhood-proof.b64
-          base64 --decode /tmp/manhood-proof.b64 > manhood-proof.jpg
-          echo "383ff74027d0e519d16739992727c3fc8b48f7b29c5db8c815868cb27ef41ee4  manhood-proof.jpg" | sha256sum -c -
-
-          file manhood-sketches.jpg manhood-system.jpg manhood-proof.jpg manhood-full-black.png manhood-full-white.png
+          file manhood-sketches.jpg manhood-proof.jpg manhood-system.jpg manhood-full-black.png manhood-full-white.png
 
           rm -f manhood-full-black.jpg manhood-full-gold.jpg manhood-full-red.jpg manhood-full-brown.jpg manhood-full-white.jpg
           rm -f manhood-wordmark-black-gold.jpg manhood-wordmark-gold.jpg manhood-wordmark-red.jpg manhood-wordmark-brown.jpg
