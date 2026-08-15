@@ -1,0 +1,44 @@
+name: Install Manhood Originals
+
+on:
+  push:
+    paths:
+      - 'manhood-upload/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check ready marker
+        id: ready
+        shell: bash
+        run: |
+          if [ ! -f manhood-upload/READY ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Rebuild original Manhood assets
+        if: steps.ready.outputs.ready == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat manhood-upload/part-* > /tmp/manhood.b64
+          base64 --decode /tmp/manhood.b64 > /tmp/manhood-originals.zip
+          echo "69b9e9fdef6ccc8b10e29b2457258cc439736cde6096b39aa700b135e33eb85b  /tmp/manhood-originals.zip" | sha256sum -c -
+          unzip -o /tmp/manhood-originals.zip -d .
+          rm -rf manhood-upload manhood-b64
+          rm -f manhood-assets-loader.js manhood-assets-sprite.webp manhood-inline.css manhood-master-sprite.jpg manhood-sprite-fixed.jpg
+          rm -f manhood-data-*.txt manhood-proof-directions.webp manhood-sketch-exploration.webp
+          rm -f _tmp_should_not_use.txt
+          git config user.name "ARTIST53 Site Build"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Install original Manhood assets and remove failed loaders"
+          git push
