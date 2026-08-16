@@ -20,14 +20,31 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          base64 --ignore-garbage --decode bang-buy-teaser.b64 > bang-buy-teaser.jpg
-          base64 --ignore-garbage --decode bang-buy-event-logo.b64 > bang-buy-event-identity.jpg
-          base64 --ignore-garbage --decode bang-buy-food-raffle.b64 > bang-buy-food-trucks-raffle.jpg
-          base64 --ignore-garbage --decode bang-buy-bang-out.b64 > bang-buy-bang-out.jpg
-          base64 --ignore-garbage --decode bang-buy-black-rambo.b64 > bang-buy-black-rambo.jpg
-          base64 --ignore-garbage --decode bang-buy-nina.b64 > bang-buy-nina-de-la-flores.jpg
-          base64 --ignore-garbage --decode bang-buy-method.b64 > bang-buy-method-endeavors.jpg
-          base64 --ignore-garbage --decode bang-buy-sponsors.b64 > bang-buy-vendors-sponsors.jpg
+          python - <<'PY'
+          from pathlib import Path
+          import base64, re
+
+          files = {
+              'bang-buy-teaser.b64': 'bang-buy-teaser.jpg',
+              'bang-buy-event-logo.b64': 'bang-buy-event-identity.jpg',
+              'bang-buy-food-raffle.b64': 'bang-buy-food-trucks-raffle.jpg',
+              'bang-buy-bang-out.b64': 'bang-buy-bang-out.jpg',
+              'bang-buy-black-rambo.b64': 'bang-buy-black-rambo.jpg',
+              'bang-buy-nina.b64': 'bang-buy-nina-de-la-flores.jpg',
+              'bang-buy-method.b64': 'bang-buy-method-endeavors.jpg',
+              'bang-buy-sponsors.b64': 'bang-buy-vendors-sponsors.jpg',
+          }
+
+          for source, target in files.items():
+              text = Path(source).read_text(encoding='utf-8').strip()
+              text = re.sub(r'[^A-Za-z0-9+/=]', '', text)
+              text += '=' * ((4 - len(text) % 4) % 4)
+              data = base64.b64decode(text, validate=False)
+              if not data.startswith(b'\xff\xd8\xff'):
+                  raise RuntimeError(f'{source} did not decode to JPEG')
+              Path(target).write_bytes(data)
+              print(f'{target}: {len(data)} bytes')
+          PY
           file bang-buy-*.jpg
       - name: Commit normal JPG files
         shell: bash
