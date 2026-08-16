@@ -17,19 +17,24 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          base64 -d .tmp-clik2/selection.b64 > clik-social-selection.jpg
-          base64 -d .tmp-clik2/giveaway.b64 > clik-social-giveaway.jpg
-          file clik-social-selection.jpg clik-social-giveaway.jpg
-          test -s clik-social-selection.jpg
-          test -s clik-social-giveaway.jpg
           python - <<'PY'
           from pathlib import Path
-          for name in ('clik-social-selection.jpg','clik-social-giveaway.jpg'):
-              data=Path(name).read_bytes()
-              assert data[:3] == b'\xff\xd8\xff', f'{name} is not JPEG'
-              assert data[-2:] == b'\xff\xd9', f'{name} is truncated'
-              print(name, len(data), 'bytes OK')
+          import base64, re
+          pairs = {
+              '.tmp-clik2/selection.b64': 'clik-social-selection.jpg',
+              '.tmp-clik2/giveaway.b64': 'clik-social-giveaway.jpg',
+          }
+          for source, target in pairs.items():
+              text = Path(source).read_text(encoding='utf-8', errors='ignore')
+              text = re.sub(r'[^A-Za-z0-9+/=]', '', text)
+              text += '=' * ((4 - len(text) % 4) % 4)
+              data = base64.b64decode(text, validate=False)
+              assert data[:3] == b'\xff\xd8\xff', f'{target} is not JPEG'
+              assert data[-2:] == b'\xff\xd9', f'{target} is truncated'
+              Path(target).write_bytes(data)
+              print(target, len(data), 'bytes OK')
           PY
+          file clik-social-selection.jpg clik-social-giveaway.jpg
       - name: Refresh CLIK image cache keys
         run: |
           python - <<'PY'
