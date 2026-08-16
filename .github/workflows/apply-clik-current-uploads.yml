@@ -1,0 +1,46 @@
+name: Apply current CLIK uploads
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-clik-current-uploads.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Decode current uploaded artwork
+        run: |
+          cat .tmp-clik2/identity-00.b64part .tmp-clik2/identity-01.b64part | base64 -d > clik-identity-original.jpg
+          base64 -d .tmp-clik2/opening.b64 > clik-social-opening-day.jpg
+          base64 -d .tmp-clik2/selection.b64 > clik-social-selection.jpg
+          base64 -d .tmp-clik2/giveaway.b64 > clik-social-giveaway.jpg
+          file clik-identity-original.jpg clik-social-opening-day.jpg clik-social-selection.jpg clik-social-giveaway.jpg
+          test -s clik-identity-original.jpg
+          test -s clik-social-opening-day.jpg
+          test -s clik-social-selection.jpg
+          test -s clik-social-giveaway.jpg
+      - name: Refresh direct image URLs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('logo-clik-clik-bang.html')
+          s=p.read_text()
+          s=s.replace('?v=20260816-1','?v=20260816-2')
+          p.write_text(s)
+          PY
+      - name: Remove transfer staging
+        run: |
+          rm -rf .tmp-clik .tmp-clik2
+          rm -f .github/workflows/apply-clik-current-uploads.yml
+      - name: Commit uploaded artwork
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Replace CLIK identity and social graphics with current uploads'
+          git push origin HEAD:main
