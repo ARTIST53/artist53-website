@@ -15,7 +15,7 @@ jobs:
           ref: main
       - name: Decode current uploaded artwork
         run: |
-          cat .tmp-clik2/identity-00.b64part .tmp-clik2/identity-01.b64part | base64 -d > clik-identity-original.jpg
+          { printf '/'; cat .tmp-clik2/identity-00.b64part .tmp-clik2/identity-01.b64part; } | base64 -d > clik-identity-original.jpg
           base64 -d .tmp-clik2/opening.b64 > clik-social-opening-day.jpg
           base64 -d .tmp-clik2/selection.b64 > clik-social-selection.jpg
           base64 -d .tmp-clik2/giveaway.b64 > clik-social-giveaway.jpg
