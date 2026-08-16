@@ -1,4 +1,4 @@
-name: Apply current CLIK uploads
+name: Finalize CLIK current uploads
 on:
   push:
     branches: [main]
@@ -7,40 +7,48 @@ on:
 permissions:
   contents: write
 jobs:
-  apply:
+  finalize:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Decode current uploaded artwork
+      - name: Decode verified social artwork
+        shell: bash
         run: |
-          { printf '/'; cat .tmp-clik2/identity-00.b64part .tmp-clik2/identity-01.b64part; } | base64 -d > clik-identity-original.jpg
-          base64 -d .tmp-clik2/opening.b64 > clik-social-opening-day.jpg
+          set -euo pipefail
           base64 -d .tmp-clik2/selection.b64 > clik-social-selection.jpg
           base64 -d .tmp-clik2/giveaway.b64 > clik-social-giveaway.jpg
-          file clik-identity-original.jpg clik-social-opening-day.jpg clik-social-selection.jpg clik-social-giveaway.jpg
-          test -s clik-identity-original.jpg
-          test -s clik-social-opening-day.jpg
+          file clik-social-selection.jpg clik-social-giveaway.jpg
           test -s clik-social-selection.jpg
           test -s clik-social-giveaway.jpg
-      - name: Refresh direct image URLs
+          python - <<'PY'
+          from pathlib import Path
+          for name in ('clik-social-selection.jpg','clik-social-giveaway.jpg'):
+              data=Path(name).read_bytes()
+              assert data[:3] == b'\xff\xd8\xff', f'{name} is not JPEG'
+              assert data[-2:] == b'\xff\xd9', f'{name} is truncated'
+              print(name, len(data), 'bytes OK')
+          PY
+      - name: Refresh CLIK image cache keys
         run: |
           python - <<'PY'
           from pathlib import Path
           p=Path('logo-clik-clik-bang.html')
           s=p.read_text()
-          s=s.replace('?v=20260816-1','?v=20260816-2')
+          s=s.replace('?v=20260816-1','?v=20260816-3')
+          s=s.replace('?v=20260816-2','?v=20260816-3')
           p.write_text(s)
           PY
-      - name: Remove transfer staging
+      - name: Remove temporary transfer files
         run: |
-          rm -rf .tmp-clik .tmp-clik2
+          rm -rf .asset-load-20260816 .tmp-clik .tmp-clik2 .tmp-clik3 .tmp-clik4
           rm -f .github/workflows/apply-clik-current-uploads.yml
-      - name: Commit uploaded artwork
+      - name: Commit final CLIK assets
         run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -m 'Replace CLIK identity and social graphics with current uploads'
+          git commit -m 'Finalize CLIK identity and social artwork'
           git push origin HEAD:main
