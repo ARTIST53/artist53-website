@@ -1,0 +1,63 @@
+name: CLIK JPG Reset
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/clik-jpg-reset.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  reset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Build normal JPG files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          ffmpeg -y -loglevel error -i clik-social-opening-day.webp -q:v 2 clik-social-opening-day.jpg
+          ffmpeg -y -loglevel error -i clik-social-selection.webp -q:v 2 clik-social-selection.jpg
+          ffmpeg -y -loglevel error -i clik-social-giveaway.webp -q:v 2 clik-social-giveaway.jpg
+          ffmpeg -y -loglevel error -i clik-logo-packaging.webp -q:v 2 clik-logo-packaging.jpg
+
+          python - <<'PY'
+          from pathlib import Path
+          import base64, re
+
+          output_names = [
+              'bang-buy-event-logo.jpg',
+              'bang-buy-food-raffle.jpg',
+              'bang-buy-black-rambo.jpg',
+              'bang-buy-sponsors.jpg',
+          ]
+          data = []
+          for source in ['bang-n-buy-pair-1.svg', 'bang-n-buy-pair-2.svg']:
+              text = Path(source).read_text(encoding='utf-8')
+              data.extend(re.findall(r'data:image/jpeg;base64,([^\"]+)', text))
+
+          if len(data) != 4:
+              raise RuntimeError(f'Expected 4 embedded campaign images, found {len(data)}')
+
+          for name, encoded in zip(output_names, data):
+              raw = base64.b64decode(encoded)
+              if not raw.startswith(b'\xff\xd8\xff'):
+                  raise RuntimeError(f'{name} is not a JPEG')
+              Path(name).write_bytes(raw)
+          PY
+
+      - name: Commit JPG files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add clik-social-opening-day.jpg clik-social-selection.jpg clik-social-giveaway.jpg clik-logo-packaging.jpg bang-buy-event-logo.jpg bang-buy-food-raffle.jpg bang-buy-black-rambo.jpg bang-buy-sponsors.jpg
+          git commit -m "Add direct JPG files for CLIK case study"
+          git push origin HEAD:main
