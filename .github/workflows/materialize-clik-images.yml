@@ -20,14 +20,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          base64 --decode bang-buy-teaser.b64 > bang-buy-teaser.jpg
-          base64 --decode bang-buy-event-logo.b64 > bang-buy-event-identity.jpg
-          base64 --decode bang-buy-food-raffle.b64 > bang-buy-food-trucks-raffle.jpg
-          base64 --decode bang-buy-bang-out.b64 > bang-buy-bang-out.jpg
-          base64 --decode bang-buy-black-rambo.b64 > bang-buy-black-rambo.jpg
-          base64 --decode bang-buy-nina.b64 > bang-buy-nina-de-la-flores.jpg
-          base64 --decode bang-buy-method.b64 > bang-buy-method-endeavors.jpg
-          base64 --decode bang-buy-sponsors.b64 > bang-buy-vendors-sponsors.jpg
+          base64 --ignore-garbage --decode bang-buy-teaser.b64 > bang-buy-teaser.jpg
+          base64 --ignore-garbage --decode bang-buy-event-logo.b64 > bang-buy-event-identity.jpg
+          base64 --ignore-garbage --decode bang-buy-food-raffle.b64 > bang-buy-food-trucks-raffle.jpg
+          base64 --ignore-garbage --decode bang-buy-bang-out.b64 > bang-buy-bang-out.jpg
+          base64 --ignore-garbage --decode bang-buy-black-rambo.b64 > bang-buy-black-rambo.jpg
+          base64 --ignore-garbage --decode bang-buy-nina.b64 > bang-buy-nina-de-la-flores.jpg
+          base64 --ignore-garbage --decode bang-buy-method.b64 > bang-buy-method-endeavors.jpg
+          base64 --ignore-garbage --decode bang-buy-sponsors.b64 > bang-buy-vendors-sponsors.jpg
           file bang-buy-*.jpg
       - name: Commit normal JPG files
         shell: bash
