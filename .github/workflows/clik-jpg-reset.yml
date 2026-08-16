@@ -52,7 +52,8 @@ jobs:
               raise RuntimeError(f'Expected 4 embedded campaign images, found {len(data)}')
 
           for name, encoded in zip(output_names, data):
-              raw = base64.b64decode(encoded)
+              encoded += '=' * ((4 - len(encoded) % 4) % 4)
+              raw = base64.b64decode(encoded, validate=False)
               if not raw.startswith(b'\xff\xd8\xff'):
                   raise RuntimeError(f'{name} is not a JPEG')
               Path(name).write_bytes(raw)
