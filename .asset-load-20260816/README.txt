@@ -1,1 +1,0 @@
-Fresh CLIK asset load in progress.
