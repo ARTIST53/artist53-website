@@ -1,0 +1,42 @@
+name: Finalize CLIK JPGs
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/clik-finalize-jpgs.yml']
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Decode remaining campaign originals
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64, re
+          files={
+            'bang-buy-teaser.b64':'bang-buy-teaser.jpg',
+            'bang-buy-bang-out.b64':'bang-buy-bang-out.jpg',
+            'bang-buy-nina.b64':'bang-buy-nina.jpg',
+            'bang-buy-method.b64':'bang-buy-method.jpg',
+          }
+          for src,dst in files.items():
+            s=Path(src).read_text().strip()
+            s=re.sub(r'[^A-Za-z0-9+/=]','',s)
+            s += '='*((4-len(s)%4)%4)
+            raw=base64.b64decode(s, validate=False)
+            if not raw.startswith(b'\xff\xd8\xff'):
+              raise SystemExit(f'{src} did not decode as JPEG')
+            Path(dst).write_bytes(raw)
+            print(dst, len(raw))
+          PY
+      - name: Commit JPGs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add bang-buy-teaser.jpg bang-buy-bang-out.jpg bang-buy-nina.jpg bang-buy-method.jpg
+          git commit -m 'Add remaining CLIK Bang N Buy JPGs'
+          git push origin HEAD:main
