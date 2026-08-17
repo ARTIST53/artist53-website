@@ -1,0 +1,62 @@
+name: Materialize Bang N Buy campaign
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/materialize-bang-buy.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Decode campaign artwork into standard JPGs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import base64, re
+          from PIL import Image
+
+          mapping = {
+              'bang-buy-teaser.b64': 'bang-buy-teaser.jpg',
+              'bang-buy-event-logo.b64': 'bang-buy-event-logo.jpg',
+              'bang-buy-food-raffle.b64': 'bang-buy-food-raffle.jpg',
+              'bang-buy-bang-out.b64': 'bang-buy-bang-out.jpg',
+              'bang-buy-black-rambo.b64': 'bang-buy-black-rambo.jpg',
+              'bang-buy-nina.b64': 'bang-buy-nina.jpg',
+              'bang-buy-method.b64': 'bang-buy-method.jpg',
+              'bang-buy-sponsors.b64': 'bang-buy-sponsors.jpg',
+          }
+
+          for source, target in mapping.items():
+              text = Path(source).read_text(encoding='utf-8')
+              clean = re.sub(r'[^A-Za-z0-9+/=]', '', text)
+              clean += '=' * ((4 - len(clean) % 4) % 4)
+              data = base64.b64decode(clean, validate=False)
+              Path(target).write_bytes(data)
+              with Image.open(target) as im:
+                  im.verify()
+              with Image.open(target) as im:
+                  print(target, im.size)
+          PY
+
+          rm -f .github/workflows/materialize-bang-buy.yml
+
+      - name: Commit standard campaign images
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Add complete Bang N Buy JPG campaign set"
+          git push origin HEAD:main
