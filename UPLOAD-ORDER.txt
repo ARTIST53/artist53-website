@@ -1,0 +1,14 @@
+BOMBSHELL BOULEVARD — GITHUB UPLOAD
+Upload these compressed files into:
+assets/bombshell-boulevard/
+
+Order:
+01-04  Sketch exploration
+05-07  Logo development / proofing
+08-11  Final logo variations
+12-15  Color specification sheets
+16     Business card applications
+17-18  Brand presentation / overview
+
+The original sketch with the blue corner graphic is NOT included.
+The cleaned version is 01-bombshell-sketch-script.webp.
