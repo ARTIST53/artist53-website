@@ -30,15 +30,6 @@
 .asset-stage.narrow{max-width:760px}
 .asset-stage.medium{max-width:940px}
 .asset-stage img{display:block;width:100%;height:auto;object-fit:contain;margin:0 auto}
-.image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:38px}
-.image-card{background:#0b0b0b;border:1px solid var(--line);padding:14px}
-.image-card.light{background:#fff;color:#111}
-.image-card-media{background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.image-card-media.dark{background:#050505}
-.image-card-media img{display:block;width:100%;height:auto;object-fit:contain}
-.image-card h3{font-family:Bebas;font-weight:400;font-size:1.6rem;margin:13px 0 3px}
-.image-card p{color:var(--muted);font-size:.95rem;line-height:1.55;margin:0 0 4px}
-.image-card.light p{color:#555}
 .feature-band{margin-top:42px;padding:28px;border:1px solid #342a14;background:linear-gradient(110deg,#101010,#0a0907);display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
 .feature-band strong{font-family:Bebas;color:var(--yellow);font-size:2.1rem;font-weight:400;line-height:1}
 .feature-band p{margin:0;color:var(--muted);line-height:1.75;max-width:850px}
@@ -50,12 +41,27 @@
 #beginning .feature-band{grid-template-columns:1fr;gap:14px}
 #beginning .feature-band p{max-width:none;text-align:left}
 .palette-row{display:grid;grid-template-columns:repeat(4,1fr);margin-top:34px;border:1px solid var(--line)}
-.palette-row div{min-height:112px;padding:18px;display:flex;align-items:flex-end;font-family:Bebas;font-size:1.12rem;letter-spacing:.04em}
+.palette-row div{min-height:112px;padding:18px;display:flex;align-items:flex-end;font-family:Bebas;font-size:1.12rem;letter-spacing:.04em;text-align:left}
 .palette-row .swatch-white{background:#fff;color:#111}.palette-row .swatch-black{background:#000;color:#fff}.palette-row .swatch-gold{background:#c79b28;color:#111}.palette-row .swatch-deep{background:#7a5b0f;color:#fff}
+.system-label{display:block;margin:42px 0 10px;color:var(--yellow);font-family:Bebas;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase}
+.type-card{border:1px solid var(--line);background:#101010;padding:28px;text-align:left}
+.type-card h3{font-family:Bebas;font-size:2.2rem;font-weight:400;color:#fff;margin:0 0 8px}
+.type-card p{margin:0;color:var(--muted);line-height:1.7;max-width:760px}
+.system-reference-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:28px;align-items:stretch}
+.system-card{border:1px solid var(--line);background:#101010;padding:14px;display:flex;flex-direction:column;text-align:left}
+.system-card.light{background:#fff;color:#111}
+.system-card-copy{padding:4px 2px 14px;min-height:92px}
+.system-card h3{font-family:Bebas;font-weight:400;font-size:1.6rem;margin:0 0 4px;color:var(--yellow)}
+.system-card.light h3{color:#d2a400}
+.system-card p{color:var(--muted);font-size:.95rem;line-height:1.55;margin:0}
+.system-card.light p{color:#555}
+.system-card-media{margin-top:auto;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:360px}
+.system-card-media.dark{background:#050505}
+.system-card-media img{display:block;width:100%;height:100%;max-height:520px;object-fit:contain}
 .application-stack{display:grid;gap:28px;margin-top:40px}
 .application-stack .asset-stage{margin-top:0}
 @media(max-width:1000px){.project-hero-grid{grid-template-columns:1fr}.hero-logo{min-height:0;max-width:700px;margin-left:auto;margin-right:auto}.project-facts{grid-template-columns:1fr 1fr}.transition-grid{grid-template-columns:1fr}}
-@media(max-width:760px){.project-page section{padding:70px 0}.project-facts,.image-grid{grid-template-columns:1fr}.palette-row{grid-template-columns:1fr 1fr}.hero-logo{padding:14px}.hero-logo img{width:110%;max-height:none}.asset-stage{padding:9px}.feature-band{grid-template-columns:1fr}}
+@media(max-width:760px){.project-page section{padding:70px 0}.project-facts,.system-reference-grid{grid-template-columns:1fr}.palette-row{grid-template-columns:1fr 1fr}.hero-logo{padding:14px}.hero-logo img{width:110%;max-height:none}.asset-stage{padding:9px}.feature-band{grid-template-columns:1fr}.system-card-copy{min-height:0}.system-card-media{min-height:0}}
 @media(max-width:480px){.palette-row{grid-template-columns:1fr}.palette-row div{min-height:86px}}
 </style>
 </head>
@@ -115,10 +121,17 @@
     <p class="eyebrow">Color + Typography</p>
     <h2 class="project-title">A Tight Visual Language</h2>
     <p class="project-copy">The identity stays intentionally restrained: black and white create maximum contrast while two gold tones add warmth and a premium edge. A condensed display typeface gives the name a strong editorial presence beside the detailed lion mark.</p>
+
+    <span class="system-label">Color Palette</span>
     <div class="palette-row" aria-label="Left Side of the Lion brand palette"><div class="swatch-white">White · #FFFFFF</div><div class="swatch-black">Black · #000000</div><div class="swatch-gold">Gold · #C79B28</div><div class="swatch-deep">Deep Gold · #7A5B0F</div></div>
-    <div class="image-grid">
-      <article class="image-card"><div class="image-card-media dark"><img loading="lazy" decoding="async" src="lsotl-color-palette-web.jpg" alt="Left Side of the Lion color palette and typography specification"></div><h3>Identity Specifications</h3><p>Color values and the Modesto Condensed display type used to support the mark.</p></article>
-      <article class="image-card light"><div class="image-card-media"><img loading="lazy" decoding="async" src="lsotl-brand-sheet-web.jpg" alt="Left Side of the Lion brand sheet with logo and color palette"></div><h3>Brand Sheet</h3><p>The primary lockup presented alongside the essential palette for consistent use.</p></article>
+
+    <span class="system-label">Typography</span>
+    <div class="type-card"><h3>Modesto Condensed</h3><p>The condensed display face supports the primary mark and gives the Left Side Of The Lion name a strong, cinematic presence without competing with the lion symbol.</p></div>
+
+    <span class="system-label">Identity Reference</span>
+    <div class="system-reference-grid">
+      <article class="system-card"><div class="system-card-copy"><h3>Specification Sheet</h3><p>Original color values, typography and production references used to support the identity system.</p></div><div class="system-card-media dark"><img loading="lazy" decoding="async" src="lsotl-color-palette-web.jpg" alt="Left Side of the Lion color palette and typography specification"></div></article>
+      <article class="system-card light"><div class="system-card-copy"><h3>Brand Sheet</h3><p>The primary lockup and essential palette presented together for consistent use across film, video and media applications.</p></div><div class="system-card-media"><img loading="lazy" decoding="async" src="lsotl-brand-sheet-web.jpg" alt="Left Side of the Lion brand sheet with logo and color palette"></div></article>
     </div>
   </div>
 </section>
