@@ -8,10 +8,12 @@
 <link rel="stylesheet" href="styles.css?v=20260818-bombshell2">
 <style>
 .project-page section{padding:92px 0;border-bottom:1px solid var(--line)}
-.project-hero{padding:70px 0}.project-hero h1{font-size:clamp(4.5rem,10vw,8.5rem);color:var(--yellow);line-height:.9}
-.project-lead,.project-copy{max-width:880px;color:var(--muted);font-size:1.08rem;line-height:1.8}
+.project-page section>.wrap,.project-hero>.wrap{text-align:left}
+.project-hero{padding:70px 0}.project-hero h1{font-size:clamp(4.5rem,10vw,8.5rem);color:var(--yellow);line-height:.9;text-align:left}
+.project-lead,.project-copy{max-width:880px;color:var(--muted);font-size:1.08rem;line-height:1.8;text-align:left;margin-left:0;margin-right:0}
+.project-title,.eyebrow,.stage-number{text-align:left}
 .project-title{font-size:clamp(3.4rem,7vw,6rem);color:var(--yellow);line-height:.95}
-.project-facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:36px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.project-facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:36px;border-top:1px solid var(--line);border-left:1px solid var(--line);text-align:left}
 .project-facts article{padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .project-facts span{display:block;color:var(--yellow);font-family:Bebas;text-transform:uppercase;margin-bottom:8px}
 .project-facts strong{font-family:Bebas;font-size:1.35rem;font-weight:400}
@@ -22,11 +24,11 @@
 .asset-stage{max-width:1040px;margin:36px auto 0;border:1px solid #333;padding:18px;background:#fff}
 .asset-stage img{display:block;width:100%;height:auto;object-fit:contain}
 .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:36px}
-.case-card{background:#0b0b0b;border:1px solid var(--line);padding:14px}
+.case-card{background:#0b0b0b;border:1px solid var(--line);padding:14px;text-align:left}
 .case-media{background:#fff;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .case-media.dark{background:#050505}
 .case-media img{display:block;width:100%;height:100%;object-fit:contain}
-.case-card h3{font-family:Bebas;font-weight:400;font-size:1.5rem;margin:12px 0 0}
+.case-card h3{font-family:Bebas;font-weight:400;font-size:1.5rem;margin:12px 0 0;text-align:left}
 @media(max-width:800px){.project-facts{grid-template-columns:1fr}.case-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.project-page section{padding:68px 0}.asset-stage{padding:10px}.case-grid{grid-template-columns:1fr}}
 </style>
