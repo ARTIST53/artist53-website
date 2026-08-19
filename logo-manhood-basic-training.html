@@ -8,10 +8,12 @@
 <link rel="stylesheet" href="styles.css?v=20260804-0018">
 <style>
 .project-page section{padding:92px 0;border-bottom:1px solid var(--line)}
-.project-hero{padding:70px 0}.project-hero h1{font-size:clamp(4.5rem,10vw,8.5rem);color:var(--yellow);line-height:.9}
-.project-lead,.project-copy{max-width:880px;color:var(--muted);font-size:1.08rem;line-height:1.8}
+.project-page section>.wrap,.project-hero>.wrap{text-align:left}
+.project-hero{padding:70px 0}.project-hero h1{font-size:clamp(4.5rem,10vw,8.5rem);color:var(--yellow);line-height:.9;text-align:left}
+.project-lead,.project-copy{max-width:880px;color:var(--muted);font-size:1.08rem;line-height:1.8;text-align:left;margin-left:0;margin-right:0}
+.project-title,.eyebrow,.stage-number{text-align:left}
 .project-title{font-size:clamp(3.4rem,7vw,6rem);color:var(--yellow);line-height:.95}
-.project-facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:36px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.project-facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:36px;border-top:1px solid var(--line);border-left:1px solid var(--line);text-align:left}
 .project-facts article{padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .project-facts span{display:block;color:var(--yellow);font-family:Bebas;text-transform:uppercase;margin-bottom:8px}
 .project-facts strong{font-family:Bebas;font-size:1.35rem;font-weight:400}
@@ -25,8 +27,8 @@
 .asset-stage img,.piece-media img{display:block;width:100%;height:auto;object-fit:contain}
 .piece-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:36px}
 .piece-grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
-.piece{background:#0b0b0b;border:1px solid var(--line);padding:14px}
-.piece h3{font-family:Bebas;font-weight:400;font-size:1.5rem;margin:12px 0 0}
+.piece{background:#0b0b0b;border:1px solid var(--line);padding:14px;text-align:left}
+.piece h3{font-family:Bebas;font-weight:400;font-size:1.5rem;margin:12px 0 0;text-align:left}
 .piece-media{background:#fff;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .piece-media.dark{background:#050505}
 .piece-media img{width:100%;height:100%;object-fit:contain}
