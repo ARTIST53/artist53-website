@@ -10,7 +10,7 @@
 .project-page section{padding:92px 0;border-bottom:1px solid var(--line)}
 .project-page section>.wrap,.project-hero-grid>div:first-child{text-align:left}
 .project-hero{padding:72px 0 84px}
-.project-hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.75fr);gap:54px;align-items:center}
+.project-hero-grid{display:grid;grid-template-columns:1fr;gap:42px;align-items:center}
 .project-hero h1{font-size:clamp(4.2rem,8.8vw,8rem);color:var(--yellow);line-height:.88;margin-bottom:24px;text-align:left}
 .project-lead,.project-copy{max-width:900px;color:var(--muted);font-size:1.08rem;line-height:1.8;text-align:left;margin-left:0;margin-right:0}
 .project-title,.eyebrow,.stage-number{text-align:left}
@@ -27,7 +27,7 @@
 .asset-stage{max-width:1120px;margin:36px auto 0;border:1px solid #333;padding:16px;background:#fff}
 .asset-stage.medium{max-width:940px}
 .asset-stage img{display:block;width:100%;height:auto;object-fit:contain}
-.hero-logo{background:#fff;border:1px solid #262626;padding:26px;display:flex;align-items:center;justify-content:center;min-height:420px}
+.hero-logo{background:#fff;border:1px solid #262626;padding:26px;display:flex;align-items:center;justify-content:center;min-height:420px;width:min(100%,760px);margin:0 auto}
 .hero-logo img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain}
 .image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:36px}
 .image-card{background:#0b0b0b;border:1px solid var(--line);padding:14px;text-align:left}
@@ -40,7 +40,7 @@
 .feature-band{margin-top:42px;padding:28px;border:1px solid var(--line);background:#101010;display:grid;grid-template-columns:1fr;gap:12px;align-items:start;text-align:left}
 .feature-band strong{font-family:Bebas;color:var(--yellow);font-size:2.1rem;font-weight:400;line-height:1;text-align:left}
 .feature-band p{margin:0;color:var(--muted);line-height:1.75;max-width:900px;text-align:left}
-@media(max-width:1000px){.project-hero-grid{grid-template-columns:1fr}.hero-logo{min-height:0;max-width:720px}}
+@media(max-width:1000px){.hero-logo{min-height:0;max-width:720px}}
 @media(max-width:800px){.project-facts{grid-template-columns:1fr}.image-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.project-page section{padding:68px 0}.asset-stage{padding:9px}.image-grid{grid-template-columns:1fr}.hero-logo{padding:14px}}
 </style>
@@ -93,10 +93,9 @@
 <section id="system" class="project-dark">
   <div class="wrap">
     <span class="stage-number">03 / Brand System</span>
-    <p class="eyebrow">Color + Usage</p>
+    <p class="eyebrow">Identity Details</p>
     <h2 class="project-title">Defining The Identity Beyond The Mark</h2>
-    <p class="project-copy">The presentation sheet brings the final logo together with the nonprofit description and production color values. It also shows how the identity translates into a black-and-white version for situations where full color is not available.</p>
-    <div class="asset-stage medium"><img loading="lazy" src="i-think-i-am-brand-presentation.jpg" alt="I Think I Am Foundation identity presentation with final logo, brand colors and black-and-white version"></div>
+    <p class="project-copy">The finished system was prepared to work consistently across full-color and single-color applications while keeping the organization’s message, structure and visual character intact.</p>
     <div class="project-facts"><article><span>Client</span><strong>I Think I Am Foundation</strong></article><article><span>Industry</span><strong>Nonprofit Organization</strong></article><article><span>Location</span><strong>Warner Robins, Georgia</strong></article><article><span>Services</span><strong>Logo Design &amp; Identity</strong></article></div>
   </div>
 </section>
