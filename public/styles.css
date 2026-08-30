@@ -44,7 +44,7 @@ footer{padding:58px 0}.footer{display:grid;grid-template-columns:1fr 1fr;align-i
 
 /* Site-wide portfolio image enlargement */
 .site-zoomable{cursor:zoom-in;transition:scale .3s ease,filter .3s ease}
-@media(hover:hover) and (pointer:fine){.site-zoomable:hover{scale:1.035;filter:brightness(1.04)}}
+@media(hover:hover) and (pointer:fine){.site-zoomable:hover{scale:1.06;filter:brightness(1.04)}}
 .artist53-lightbox{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:clamp(18px,4vw,52px);background:rgba(0,0,0,.94);backdrop-filter:blur(8px)}
 .artist53-lightbox.is-open{display:flex}
 .artist53-lightbox__figure{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;margin:0}
