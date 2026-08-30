@@ -6,3 +6,30 @@ const styles=document.createElement('style');styles.textContent=`.logo-gallery{g
 const logoPoints=document.querySelector('.logo-hero-points');if(logoPoints){const items=['Custom Logo Design','Emblems & Mascots','Brand Marks','Print + Digital Ready'];const group=items.map(item=>`<span>${item}</span><b>•</b>`).join('');logoPoints.innerHTML=`<div class="logo-hero-points-track"><div class="logo-hero-points-group">${group}</div><div class="logo-hero-points-group" aria-hidden="true">${group}</div></div>`}
 const ccb=document.querySelector('img[alt="Clik Clik Bang logo"]');if(ccb)ccb.src='clik-clik-bang-clean.svg?v=20260812-1036';
 const footer=document.querySelector('footer');if(footer){footer.innerHTML=`<div class="site-footer"><a class="site-footer-icon" href="index.html" aria-label="ARTIST53 home"><img src="artist53-footer-clean-final.png?v=20260812-1036" alt="ARTIST53 gold icon"></a><nav class="site-footer-socials" aria-label="ARTIST53 social media"><a href="https://www.instagram.com/artist053/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://youtube.com/@artist053?si=jIRie_tqxgwjsKy1" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://www.facebook.com/Artist53-517267671632498/" target="_blank" rel="noopener noreferrer">Facebook</a></nav><a class="site-footer-email" href="mailto:justin@artist53.com">justin@artist53.com</a><p class="site-footer-copy">© 2026 ARTIST53</p><p class="site-footer-tagline">ART NEVER SLEEPS!</p></div>`;}
+
+/* Site-wide portfolio image enlargement */
+(()=>{if(window.artist53ImageViewerReady)return;window.artist53ImageViewerReady=true;
+const setup=()=>{
+  const images=[...document.querySelectorAll('main img')].filter(img=>!img.closest('a,header,footer')&&!img.hasAttribute('data-no-lightbox'));
+  if(!images.length)return;
+  images.forEach(img=>{img.classList.add('site-zoomable');img.setAttribute('tabindex','0');img.setAttribute('role','button');img.setAttribute('aria-label',(img.alt?img.alt+'. ':'')+'Open enlarged image')});
+  const viewer=document.createElement('div');
+  viewer.className='artist53-lightbox';
+  viewer.setAttribute('role','dialog');
+  viewer.setAttribute('aria-modal','true');
+  viewer.setAttribute('aria-label','Enlarged image viewer');
+  viewer.innerHTML='<button class="artist53-lightbox__close" type="button" aria-label="Close enlarged image">&times;</button><figure class="artist53-lightbox__figure"><img class="artist53-lightbox__image" alt=""><figcaption class="artist53-lightbox__caption"></figcaption></figure>';
+  document.body.appendChild(viewer);
+  const full=viewer.querySelector('.artist53-lightbox__image');
+  const caption=viewer.querySelector('.artist53-lightbox__caption');
+  const closeButton=viewer.querySelector('.artist53-lightbox__close');
+  let opener=null;
+  const open=img=>{opener=img;full.src=img.currentSrc||img.src;full.alt=img.alt||'';caption.textContent=img.alt||'';viewer.classList.add('is-open');document.body.classList.add('artist53-lightbox-open');closeButton.focus()};
+  const close=()=>{if(!viewer.classList.contains('is-open'))return;viewer.classList.remove('is-open');document.body.classList.remove('artist53-lightbox-open');full.removeAttribute('src');if(opener)opener.focus()};
+  images.forEach(img=>{img.addEventListener('click',()=>open(img));img.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();open(img)}})});
+  closeButton.addEventListener('click',close);
+  viewer.addEventListener('click',event=>{if(event.target===viewer)close()});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')close()});
+};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true});else setup();
+})();
