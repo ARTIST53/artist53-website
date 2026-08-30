@@ -40,3 +40,18 @@ section{padding:92px 0;border-bottom:1px solid var(--line)}.title{font-size:clam
 footer{padding:58px 0}.footer{display:grid;grid-template-columns:1fr 1fr;align-items:start}.footer img{width:330px;height:auto;object-fit:contain;object-position:left top}.footer-right{text-align:right}.footer-right h3{font-size:2rem;color:var(--yellow)}.socials{display:flex;gap:18px;justify-content:flex-end;flex-wrap:wrap;font-family:Bebas;font-size:1.2rem}
 @media(max-width:900px){.hero-grid,.about,.contact,.case{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.nav{flex-direction:row;align-items:center}.brand img{width:230px}.nav-label{font-size:1.25rem}.grid,.feature,.process,form{grid-template-columns:1fr}.service-line{font-size:1rem;gap:6px}.footer{grid-template-columns:1fr;gap:28px}.footer-right{text-align:left}.socials{justify-content:flex-start}}
+
+
+/* Site-wide portfolio image enlargement */
+.site-zoomable{cursor:zoom-in;transition:scale .3s ease,filter .3s ease}
+@media(hover:hover) and (pointer:fine){.site-zoomable:hover{scale:1.035;filter:brightness(1.04)}}
+.artist53-lightbox{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:clamp(18px,4vw,52px);background:rgba(0,0,0,.94);backdrop-filter:blur(8px)}
+.artist53-lightbox.is-open{display:flex}
+.artist53-lightbox__figure{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;margin:0}
+.artist53-lightbox__image{display:block!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:calc(100vh - 104px)!important;object-fit:contain!important;scale:none!important;filter:none!important;box-shadow:0 22px 80px rgba(0,0,0,.65)}
+.artist53-lightbox__caption{max-width:min(900px,90vw);margin:14px 0 0;color:#fff;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:.95rem;line-height:1.45}
+.artist53-lightbox__caption:empty{display:none}
+.artist53-lightbox__close{position:absolute;top:14px;right:14px;z-index:2;display:grid;place-items:center;width:48px;height:48px;padding:0;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:#050505;color:var(--yellow,#ffc31c);font:400 2.2rem/1 Arial,sans-serif;cursor:pointer}
+.artist53-lightbox__close:hover,.artist53-lightbox__close:focus-visible{background:var(--yellow,#ffc31c);color:#050505;outline:none}
+body.artist53-lightbox-open{overflow:hidden}
+@media(prefers-reduced-motion:reduce){.site-zoomable{transition:none}.site-zoomable:hover{scale:none}}
