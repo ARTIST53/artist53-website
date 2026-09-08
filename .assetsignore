@@ -1,0 +1,8 @@
+# Repository metadata and local tooling are not website assets.
+**/.git
+**/node_modules
+**/.wrangler
+**/.DS_Store
+wrangler.json
+wrangler.jsonc
+wrangler.toml
