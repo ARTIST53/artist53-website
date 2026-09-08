@@ -81,6 +81,11 @@
         height: 100%;
         object-fit: contain;
       }
+      .process-card.color-direction {
+        grid-column: 1 / -1;
+        width: min(720px, 100%);
+        justify-self: center;
+      }
       .facts {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -219,25 +224,10 @@
                 loading="lazy"
               />
             </figure>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="wrap">
-          <p class="eyebrow">Character Development</p>
-          <h2 class="case-title">Full Character And Head</h2>
-          <div class="process-grid">
-            <figure class="process-card">
+            <figure class="process-card color-direction">
               <img
                 src="kangaroo-front.jpg"
-                alt="Initial full-body Kangaroo Jack color proof"
-                loading="lazy"
-              />
-            </figure>
-            <figure class="process-card">
-              <img
-                src="kangaroo-head.jpg"
-                alt="Final Kangaroo Jack head design"
+                alt="Kangaroo Jack color version before the final output"
                 loading="lazy"
               />
             </figure>
