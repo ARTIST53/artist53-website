@@ -44,6 +44,19 @@
         margin-right: auto;
         background: #ffc31c;
       }
+      .mascot-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 36px;
+      }
+      .mascot-gallery img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1100 / 1632;
+        object-fit: cover;
+        object-position: top;
+      }
       .facts {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -66,6 +79,9 @@
       }
       @media (max-width: 700px) {
         .facts {
+          grid-template-columns: 1fr;
+        }
+        .mascot-gallery {
           grid-template-columns: 1fr;
         }
       }
@@ -155,11 +171,22 @@
       <section>
         <div class="wrap">
           <p class="eyebrow">Character Applications</p>
-          <h2 class="case-title">Mascot Suite</h2>
-          <div class="case-art">
+          <h2 class="case-title">Mascot Suit</h2>
+          <div class="mascot-gallery">
             <img
-              src="kangaroo-brand-sheet.png"
-              alt="Kangaroo Jack mascot suite with logo, colors and character poses"
+              src="MASCOT-COSTUME%201.jpeg"
+              alt="Kangaroo Jack mascot costume beside the arcade machines"
+              loading="lazy"
+            />
+            <img
+              src="MASCOT-COSTUME%202.jpeg"
+              alt="Kangaroo Jack mascot costume at the front counter"
+              loading="lazy"
+            />
+            <img
+              src="MASCOT-COSTUME%203.jpeg"
+              alt="Kangaroo Jack mascot costume holding balloons on opening day"
+              loading="lazy"
             />
           </div>
         </div>
