@@ -83,8 +83,13 @@
       }
       .process-card.color-direction {
         grid-column: 1 / -1;
-        width: min(720px, 100%);
-        justify-self: center;
+        width: 100%;
+        align-self: start;
+      }
+      .process-card.color-direction img {
+        height: auto;
+        clip-path: inset(0 0 4px 0);
+        margin-bottom: -4px;
       }
       .facts {
         display: grid;
