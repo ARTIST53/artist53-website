@@ -9,6 +9,6 @@
       card.hidden = button.dataset.filter !== 'all' && card.dataset.category !== button.dataset.filter;
       if (!card.hidden) visible++;
     });
-    count.textContent = `${visible} collection preview${visible === 1 ? '' : 's'}`;
+    count.textContent = `${visible} collection${visible === 1 ? '' : 's'}`;
   }));
 })();
