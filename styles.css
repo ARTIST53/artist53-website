@@ -67,3 +67,8 @@ body main p.eyebrow{color:var(--yellow)!important}
 
 /* Reserve clearance above the footer pencil at the top of its 34px bounce. */
 .site-footer .site-footer-newsletter{margin-bottom:80px}
+
+/* Shared signup presentation for every footer script. */
+.site-footer .site-footer-newsletter{width:100%;margin:0 0 80px}
+.site-footer-newsletter h2{margin:0 0 8px;color:var(--yellow);font-family:Bebas,Arial,sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:.05em;text-transform:uppercase}
+.site-footer-newsletter p{margin:0 0 18px;color:#bbb}
