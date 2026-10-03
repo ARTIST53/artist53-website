@@ -64,3 +64,6 @@ body.artist53-lightbox-open{overflow:hidden}
 
 /* Keep section captions consistent across page-specific text styles. */
 body main p.eyebrow{color:var(--yellow)!important}
+
+/* Reserve clearance above the footer pencil at the top of its 34px bounce. */
+.site-footer .site-footer-newsletter{margin-bottom:80px}
