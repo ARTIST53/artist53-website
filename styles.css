@@ -72,3 +72,100 @@ body main p.eyebrow{color:var(--gold)!important}
 .site-footer .site-footer-newsletter{width:100%;margin:0 0 80px}
 .site-footer-newsletter h2{margin:0 0 8px;color:var(--gold);font-family:Bebas,Arial,sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:.05em;text-transform:uppercase}
 .site-footer-newsletter p{margin:0 0 18px;color:#bbb}
+
+
+/* Compact footer newsletter inspired by a traditional shop footer column.
+   The animated footer mark is intentionally not changed here. */
+.site-footer .site-footer-newsletter{
+  box-sizing:border-box;
+  width:min(420px,100%);
+  margin:0 auto 96px;
+  text-align:left;
+  align-self:center;
+}
+.site-footer-newsletter h2{
+  margin:0 0 12px;
+  color:var(--gold);
+  font-family:Bebas,Arial,sans-serif;
+  font-size:1.45rem;
+  line-height:1;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.site-footer-newsletter p{
+  max-width:360px;
+  margin:0 0 16px;
+  color:#aaa;
+  font-size:.98rem;
+  line-height:1.55;
+}
+.site-footer-newsletter .ml-embedded{
+  width:100%;
+  margin:0!important;
+  text-align:left!important;
+}
+.site-footer-newsletter .ml-form-embedContainer,
+.site-footer-newsletter .ml-form-align-center,
+.site-footer-newsletter .ml-form-embedWrapper{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.site-footer-newsletter .ml-form-embedBody,
+.site-footer-newsletter .ml-form-successBody{
+  padding:0!important;
+}
+.site-footer-newsletter .ml-form-embedContent{
+  display:none!important;
+}
+.site-footer-newsletter .ml-form-formContent{
+  margin:0!important;
+}
+.site-footer-newsletter .ml-form-fieldRow{
+  margin:0 0 12px!important;
+}
+.site-footer-newsletter input[type="email"],
+.site-footer-newsletter input[type="text"]{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-height:50px!important;
+  margin:0!important;
+  padding:12px 14px!important;
+  border:1px solid #555!important;
+  border-radius:2px!important;
+  background:#111!important;
+  color:#fff!important;
+  font:inherit!important;
+  box-shadow:none!important;
+}
+.site-footer-newsletter input::placeholder{color:#888!important}
+.site-footer-newsletter .ml-form-embedSubmit{
+  margin:0!important;
+  text-align:left!important;
+}
+.site-footer-newsletter .ml-form-embedSubmit button{
+  width:auto!important;
+  min-width:132px!important;
+  min-height:48px!important;
+  padding:12px 22px!important;
+  border:1px solid var(--gold)!important;
+  border-radius:2px!important;
+  background:var(--gold)!important;
+  color:#000!important;
+  font-family:Bebas,Arial,sans-serif!important;
+  font-size:1.15rem!important;
+  font-weight:700!important;
+  line-height:1!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+  box-shadow:none!important;
+}
+.site-footer-newsletter .ml-form-embedSubmit button:hover{filter:brightness(1.06)}
+@media(max-width:620px){
+  .site-footer .site-footer-newsletter{width:100%;margin-bottom:92px}
+  .site-footer-newsletter h2{font-size:1.35rem}
+}
