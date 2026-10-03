@@ -56,3 +56,6 @@ footer{padding:58px 0}.footer{display:grid;grid-template-columns:1fr 1fr;align-i
 body.artist53-lightbox-open{overflow:hidden}
 @media(max-width:620px){.artist53-lightbox__image{transition-duration:.32s}}
 @media(prefers-reduced-motion:reduce){.site-zoomable,.artist53-lightbox,.artist53-lightbox__image{transition:none}.site-zoomable:hover{opacity:1}}
+
+/* Reserve clearance above the footer pencil at the top of its 34px bounce. */
+.site-footer .site-footer-newsletter{margin-bottom:80px}
