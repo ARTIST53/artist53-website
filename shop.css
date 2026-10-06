@@ -2,3 +2,6 @@ html{scroll-padding-top:150px}.shop-page{font-size:18px}.shop-page :focus-visibl
 
 /* Retired shop announcement bar */
 .shop-announcement{display:none!important;height:0!important;padding:0!important;margin:0!important;overflow:hidden!important}
+
+/* ARTIST53 brand gold: Shop hero heading */
+.shop-hero h1{color:#FAC926!important}
