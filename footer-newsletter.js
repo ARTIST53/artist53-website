@@ -18,7 +18,7 @@
   if(email)follow.appendChild(email);
   newsletter.id='artist53-newsletter';
   newsletter.querySelector('h2').textContent='Newsletter';
-  newsletter.querySelector('p').textContent='Sign up for ARTIST53 updates, new work, releases and shop news.';
+  newsletter.querySelector('p').innerHTML='Sign up for ARTIST53 updates, new work, releases and shop news. View our <a href="privacy.html">Privacy Policy</a>.';
   columns.appendChild(newsletter);
   footer.prepend(columns);
  };
