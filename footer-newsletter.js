@@ -1,6 +1,26 @@
 /* Shared footer presentation. Preserve MailerLite handlers and the animated mark. */
 (()=>{
+ const ensureSitewideTagline=()=>{
+  const main=document.querySelector('main');
+  if(!main)return;
+  const tagline='MAKING YOUR IMAGE A REALITY';
+  const ctas=[...main.querySelectorAll('.cta')];
+  if(ctas.length){
+   const cta=ctas[ctas.length-1];
+   let heading=cta.querySelector('h2');
+   if(!heading){heading=document.createElement('h2');cta.prepend(heading);}
+   heading.textContent=tagline;
+   return;
+  }
+  if(document.getElementById('artist53-sitewide-tagline'))return;
+  const block=document.createElement('div');
+  block.id='artist53-sitewide-tagline';
+  block.className='cta artist53-sitewide-tagline';
+  block.innerHTML='<h2>'+tagline+'</h2>';
+  main.appendChild(block);
+ };
  const setup=()=>{
+  ensureSitewideTagline();
   const footer=document.querySelector('footer .site-footer');
   if(!footer||document.getElementById('artist53-footer-columns'))return;
   const newsletter=footer.querySelector('.site-footer-newsletter');
