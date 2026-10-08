@@ -48,3 +48,85 @@ body[data-artwork-detail] main :is(.image-card-media, .case-media, .system-card-
   margin-top: 12px !important;
   line-height: 1.35;
 }
+
+/* Responsive interior gallery alignment — October 8, 2026.
+   Preserve the complete artwork and do not modify landing-page portfolio cards. */
+body[data-artwork-detail] main :is(
+  .space-process, .art-grid, .process-grid, .project-grid,
+  .tmnt-art-gallery, .image-grid, .gameover-gallery,
+  .opening-social-grid, .gallery, .grid
+) > * { min-width:0; }
+
+body[data-artwork-detail] main :is(
+  .space-process, .art-grid, .process-grid, .project-grid,
+  .tmnt-art-gallery, .image-grid, .gameover-gallery,
+  .opening-social-grid
+) img {
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
+/* Artwork must not be forced into square crops or letterboxed stages. */
+body[data-artwork-detail] main :is(.process-grid, .art-grid) figure img,
+body[data-artwork-detail] main :is(.process-grid, .art-grid) .process-card img {
+  aspect-ratio:auto;
+}
+
+/* Keep captions directly under their own artwork, never stretched to fill a row. */
+body[data-artwork-detail] main :is(
+  .space-process figure, .art-grid figure, .process-card,
+  .tmnt-art-gallery figure, .project-grid figure, .gameover-gallery figure
+) figcaption {
+  flex:0 0 auto;
+  margin:12px 0 0 !important;
+  padding:0 !important;
+  background:transparent !important;
+}
+
+/* On tablet and smaller screens, varied formats get a centered full-width stack.
+   No cropping, stretching, artificial height matching or horizontal overflow. */
+@media (max-width:1100px) {
+  body[data-artwork-detail] main :is(
+    .space-process, .art-grid, .process-grid, .project-grid,
+    .tmnt-art-gallery, .image-grid, .opening-social-grid
+  ) {
+    grid-template-columns:minmax(0,1fr) !important;
+    align-items:start;
+    gap:32px;
+  }
+  body[data-artwork-detail] main :is(
+    .space-process, .art-grid, .process-grid,
+    .tmnt-art-gallery, .image-grid, .opening-social-grid
+  ) > * {
+    width:100%;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    grid-column:auto !important;
+  }
+  body[data-artwork-detail].gameover-page main .gameover-gallery {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+}
+/* Space Brothers features two differently proportioned images:
+   always give each the same full-width presentation, even on desktop. */
+body[data-artwork-detail].space-case main .space-process {
+  grid-template-columns:minmax(0,1fr) !important;
+  width:min(900px,100%);
+  margin-left:auto;
+  margin-right:auto;
+  gap:36px;
+}
+body[data-artwork-detail].space-case main .space-process figure {
+  min-width:0;
+  width:100%;
+  background:transparent !important;
+}
+body[data-artwork-detail].space-case main .space-process img {
+  width:100%;
+  height:auto;
+  aspect-ratio:auto;
+}
