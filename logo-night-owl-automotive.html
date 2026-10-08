@@ -45,6 +45,37 @@
 
 /* Flush image presentation — logo design section */
 .noa-hero-art,.noa-card-stage,.noa-stage,.noa-logo-card{border:0!important;padding:0!important;box-shadow:none!important}
+
+/* Center the two opening images across the page, not within offset columns. */
+.noa-hero-grid,.noa-start-grid{
+  grid-template-columns:minmax(0,1fr);
+  gap:36px;
+}
+.noa-hero-grid .noa-hero-art{
+  width:min(680px,100%);
+  max-width:100%;
+  min-height:0;
+  margin-inline:auto;
+  justify-self:center;
+}
+.noa-start-grid .noa-card-stage{
+  width:min(620px,100%);
+  max-width:100%;
+  margin-inline:auto;
+  justify-self:center;
+}
+.noa-start-grid > div:last-child{
+  width:100%;
+  max-width:900px;
+  margin-inline:auto;
+}
+.noa-hero-grid .noa-hero-art img,
+.noa-start-grid .noa-card-stage img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
 </style>
 <!-- MailerLite Universal -->
 <script>
