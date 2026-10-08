@@ -1,0 +1,50 @@
+/* Interior artwork only. Section landing pages and navigation cards stay unchanged.
+   Keep existing widths, heights, aspect ratios, crops and gallery breakpoints. */
+body[data-artwork-detail] main img:not(.card img):not(.logo-tile img) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+body[data-artwork-detail] main :is(
+  .ill-art, .art, .case-art, .space-art, .hero-art, .hero-logo,
+  .asset-stage, .project-media, .logo-stage, .image-card, .image-card-media, .piece, .albo-cover,
+  .case-card, .case-media, .piece-media, .system-card:has(img), .system-card-media,
+  .ps-hero-art, .ps-media, .ps-two figure,
+  .noa-hero-art, .noa-card-stage, .noa-stage, .noa-logo-card,
+  .trinity-hero-art, .trinity-panel, .trinity-event-art, .trinity-wide,
+  .sos-hero-art, .sos-stage, .sos-final-card, .sos-aim-card,
+  .process-card, .cover-art, .art-grid figure, .space-process figure,
+  .project-grid figure, .gameover-gallery figure, .atl-gallery button,
+  .opening-flyer-card, .work-card, .gallery figure
+) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+/* Captions sit below the artwork with a consistent, readable gap. */
+body[data-artwork-detail] main :is(figcaption, .ps-image-caption, .opening-flyer-caption,
+  .ps-caption-outside, .ps-media + .ps-caption, .project-caption, .caption, .trinity-caption) {
+  position: static !important;
+  transform: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 12px 0 0 !important;
+  line-height: 1.5 !important;
+  background: transparent !important;
+}
+/* Keep deliberately placed above-image captions above their artwork. */
+body[data-artwork-detail] main .ps-caption-top {
+  margin: 0 0 12px !important;
+}
+body[data-artwork-detail] main :is(.process-card, .cover-art, .art-grid figure,
+  .hero-art, .space-process figure, .project-grid figure, .gameover-gallery figure,
+  .image-card, .case-card, .system-card:has(img)) {
+  background: transparent !important;
+}
+body[data-artwork-detail] main :is(.image-card-media, .case-media, .system-card-media, .piece-media) + h3 {
+  margin-top: 12px !important;
+  line-height: 1.35;
+}
