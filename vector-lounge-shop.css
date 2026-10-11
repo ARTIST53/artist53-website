@@ -4,7 +4,7 @@ html{scroll-padding-top:140px}.vl-intro{padding:60px 0;background:#101010}.vl-lo
 .vl-coloring .vl-gallery figure:nth-child(n+2) img{object-fit:cover;object-position:center;width:100%;height:auto;aspect-ratio:3/4}
 
 /* Match the full frame crop used by the other marquee cards. */
-.vector-teaser-grid a[href="game-over.html"] .card-image img{object-fit:cover;width:100%;height:100%;object-position:center}
+.vector-teaser-grid a[href="atlanta-brave.html"] .card-image img,.vector-teaser-grid a[href="game-over.html"] .card-image img{object-fit:cover;width:100%;height:100%;object-position:center}
 
 /* First Print Drop cross-promotion below Marquee Collection. */
 .vl-print-cta{display:flex;justify-content:space-between;align-items:center;gap:26px;margin-top:40px;padding:25px 0;border-top:1px solid #444}
