@@ -5,3 +5,10 @@ html{scroll-padding-top:140px}.vl-intro{padding:60px 0;background:#101010}.vl-lo
 
 /* Match the full frame crop used by the other marquee cards. */
 .vector-teaser-grid a[href="game-over.html"] .card-image img{object-fit:cover;width:100%;height:100%;object-position:center}
+
+/* First Print Drop cross-promotion below Marquee Collection. */
+.vl-print-cta{display:flex;justify-content:space-between;align-items:center;gap:26px;margin-top:40px;padding:25px 0;border-top:1px solid #444}
+.vl-print-cta h3{color:var(--gold);font-family:Bebas,Arial,sans-serif;font-size:clamp(2rem,4vw,3.4rem);letter-spacing:.04em;margin:0 0 8px}
+.vl-print-cta p{max-width:690px;color:#ddd;line-height:1.65;margin:0}
+.vl-print-cta .btn{white-space:nowrap;flex:none}
+@media(max-width:750px){.vl-print-cta{display:block}.vl-print-cta .btn{display:inline-block;margin:20px 0 0;white-space:normal}}
