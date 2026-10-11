@@ -45,3 +45,10 @@ html{scroll-padding-top:150px}.shop-page{font-size:18px}.shop-page :focus-visibl
 .print-drop-intro{text-align:left}
 }
 @media(prefers-reduced-motion:reduce){.print-drop-piece img{transition:none}.print-drop-piece>a:hover img{transform:none}}
+
+/* Vector Lounge branding, visible directly on the First Print Drop landing section. */
+.print-drop-lounge-logo-link{display:block;width:min(440px,84%);margin:18px auto 4px;line-height:0}
+.print-drop-lounge-logo-link:focus-visible{outline:3px solid var(--gold);outline-offset:6px}
+.print-drop-lounge-logo{display:block;width:100%;height:auto;max-height:145px;object-fit:contain}
+.print-drop-brandline{margin:12px auto 12px!important;color:var(--gold)!important;font-size:.96rem!important;font-weight:700;letter-spacing:.095em}
+@media(max-width:700px){.print-drop-lounge-logo-link{width:min(380px,95%);margin:12px 0}.print-drop-brandline{margin:10px 0!important}}
