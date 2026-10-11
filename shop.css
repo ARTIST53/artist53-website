@@ -17,8 +17,8 @@ html{scroll-padding-top:150px}.shop-page{font-size:18px}.shop-page :focus-visibl
 .print-drop-intro .print-drop-status{font-size:1rem!important;font-weight:700;color:var(--gold)!important;letter-spacing:.06em}
 .print-drop-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
 .print-drop-piece{min-width:0}
-.print-drop-piece>a{display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;overflow:hidden;background:#101010}
-.print-drop-piece img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .25s}
+.print-drop-piece>a{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;overflow:hidden;background:#101010}
+.print-drop-piece img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .25s}
 .print-drop-piece>a:hover img{transform:scale(1.025)}
 .print-drop-piece h3{font-family:Bebas,Arial,sans-serif;color:var(--gold);font-size:clamp(2.1rem,4vw,3rem);letter-spacing:.045em;margin:14px 0 6px}
 .print-drop-piece p{color:#ccc;line-height:1.65;margin:6px 0}
