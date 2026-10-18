@@ -1,3 +1,4 @@
+(()=>{const menu=document.getElementById('navMenu');if(!menu||menu.querySelector('a[href="paintings.html"]'))return;const link=document.createElement('a');link.href='paintings.html';link.textContent='Paintings';const before=menu.querySelector('a[href="vector-lounge.html"]');if(before)menu.insertBefore(link,before);else menu.appendChild(link)})();
 const trigger=document.getElementById('navTrigger');
 const menu=document.getElementById('navMenu');
 if(menu&&!menu.querySelector('a[href="tshirt-design.html"]')){const link=document.createElement('a');link.href='tshirt-design.html';link.textContent='T-Shirt Design';const before=menu.querySelector('a[href="character-design.html"]');if(before)menu.insertBefore(link,before);else menu.appendChild(link)}
