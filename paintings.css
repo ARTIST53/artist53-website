@@ -38,3 +38,74 @@
 /* Separate category showcases on the Paintings landing page */
 .paintings-page .painting-gallery .painting-feature + .painting-feature{margin-top:85px}
 @media(max-width:620px){.paintings-page .painting-gallery .painting-feature + .painting-feature{margin-top:55px}}
+
+/* ARTIST53 image presentation standard: full frame gallery previews, no image borders,
+   matched aspect ratios, and uncropped original artwork on detail pages. */
+.paintings-page .painting-gallery .painting-feature-art{
+  width:100%;
+  aspect-ratio:1 / 1;
+  min-height:0;
+  height:auto;
+  display:block;
+  overflow:hidden;
+  border:0;
+  padding:0;
+  box-shadow:none;
+  background:#0b0b0b;
+}
+.paintings-page .painting-gallery .painting-feature-art img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.paintings-page .painting-gallery .painting-feature-art img[src*="Photo%20Apr"]{
+  transform:scale(1.08);
+  transform-origin:center;
+}
+.paintings-page .painting-main-photo{
+  min-height:0;
+  height:auto;
+  display:block;
+  overflow:hidden;
+  border:0;
+  padding:0;
+  box-shadow:none;
+  background:transparent;
+}
+.paintings-page .painting-main-photo img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  object-position:center;
+}
+.paintings-page .painting-photo-grid figure{
+  width:100%;
+  min-height:0;
+  aspect-ratio:4 / 5;
+  overflow:hidden;
+  border:0;
+  padding:0;
+  box-shadow:none;
+}
+.paintings-page .painting-photo-grid figure img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-height:none;
+  object-fit:cover;
+  object-position:center;
+}
+@media(max-width:620px){
+  .paintings-page .painting-gallery .painting-feature-art{
+    width:100%;
+    aspect-ratio:1 / 1;
+  }
+  .paintings-page .painting-gallery .painting-feature-art img,
+  .paintings-page .painting-photo-grid figure img{
+    height:100%;
+  }
+}
