@@ -28,3 +28,9 @@
 .paintings-page .painting-back:hover{text-decoration:underline}
 @media(max-width:860px){.paintings-page .painting-feature,.paintings-page .painting-detail-grid{grid-template-columns:1fr}.paintings-page .painting-feature-art{min-height:440px}.paintings-page .painting-feature-art img{height:500px}.paintings-page .painting-main-photo{min-height:0}}
 @media(max-width:620px){.paintings-page .paintings-header,.paintings-page .painting-detail-hero{padding:48px 0 35px}.paintings-page .painting-feature-art img{height:430px}.paintings-page .painting-main-photo img{height:480px}.paintings-page .painting-photo-grid{grid-template-columns:1fr;gap:16px}.paintings-page .painting-photo-grid figure{min-height:0}.paintings-page .painting-photo-grid img{height:auto;max-height:660px;object-fit:contain}.paintings-page .painting-specs div{grid-template-columns:96px 1fr}}
+
+/* Nested gallery navigation: Paintings > Skate Decks > Artwork */
+.paintings-page .painting-breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:11px;margin:0 0 28px;color:var(--gold);font-family:Bebas,Arial,sans-serif;font-size:1.18rem;letter-spacing:.05em}
+.paintings-page .painting-breadcrumbs a{color:var(--gold)}
+.paintings-page .painting-breadcrumbs a:hover{text-decoration:underline}
+.paintings-page .painting-breadcrumbs [aria-current="page"]{color:#fff}
