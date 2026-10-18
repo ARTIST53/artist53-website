@@ -33,3 +33,100 @@
 .paintings-page .canvas-description h1{overflow-wrap:anywhere}
 @media(max-width:900px){.paintings-page .canvas-collection,.paintings-page .canvas-set-inner{grid-template-columns:1fr}.paintings-page .canvas-art-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.paintings-page .canvas-set-images img{height:250px}}
 @media(max-width:620px){.paintings-page .canvas-art-grid,.paintings-page .canvas-detail-grid{grid-template-columns:1fr;gap:28px}.paintings-page .canvas-art-image{height:370px}.paintings-page .canvas-collection-photo{min-height:300px}.paintings-page .canvas-collection-photo img{height:360px}.paintings-page .canvas-set-images img{height:150px}.paintings-page .canvas-detail-grid figure img{height:auto;max-height:620px}.paintings-page .canvas-group,.paintings-page .canvas-set{padding:36px 0 70px}}
+
+/* ARTIST53 image standard: equally sized full bleed collection tiles, with complete
+   uncropped canvases retained on the dedicated artwork pages. */
+.paintings-page .canvas-collection-photo{
+  width:100%;
+  aspect-ratio:1 / 1;
+  min-height:0;
+  height:auto;
+  display:block;
+  overflow:hidden;
+  background:#0b0b0b;
+  border:0;
+  padding:0;
+  box-shadow:none;
+}
+.paintings-page .canvas-collection-photo img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
+.paintings-page .canvas-art-grid{
+  align-items:start;
+}
+.paintings-page .canvas-art-image{
+  width:100%;
+  aspect-ratio:1 / 1;
+  height:auto;
+  min-height:0;
+  display:block;
+  overflow:hidden;
+  border:0;
+  padding:0;
+  box-shadow:none;
+}
+.paintings-page .canvas-art-image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
+.paintings-page .canvas-art-card[href="lil-soldier.html"] .canvas-art-image img{
+  object-position:65% center;
+}
+.paintings-page .canvas-set-images{
+  padding:0;
+  gap:12px;
+  background:transparent;
+}
+.paintings-page .canvas-set-images img{
+  aspect-ratio:1 / 1;
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
+.paintings-page .canvas-set-images img[src="LILSOLDIER.jpeg"]{
+  object-position:65% center;
+}
+.paintings-page .canvas-detail-grid figure{
+  width:100%;
+  min-height:0;
+  aspect-ratio:3 / 4;
+  overflow:hidden;
+  padding:0;
+  border:0;
+  box-shadow:none;
+}
+.paintings-page .canvas-detail-grid figure.landscape-view{
+  aspect-ratio:4 / 3;
+}
+.paintings-page .canvas-detail-grid figure img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-height:none;
+  object-fit:cover;
+  object-position:center;
+}
+@media(max-width:620px){
+  .paintings-page .canvas-collection-photo,
+  .paintings-page .canvas-art-image{
+    width:100%;
+    aspect-ratio:1 / 1;
+  }
+  .paintings-page .canvas-collection-photo img,
+  .paintings-page .canvas-art-image img,
+  .paintings-page .canvas-detail-grid figure img{
+    height:100%;
+  }
+  .paintings-page .canvas-set-images img{
+    height:auto;
+  }
+}
