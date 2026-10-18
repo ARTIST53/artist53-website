@@ -34,3 +34,7 @@
 .paintings-page .painting-breadcrumbs a{color:var(--gold)}
 .paintings-page .painting-breadcrumbs a:hover{text-decoration:underline}
 .paintings-page .painting-breadcrumbs [aria-current="page"]{color:#fff}
+
+/* Separate category showcases on the Paintings landing page */
+.paintings-page .painting-gallery .painting-feature + .painting-feature{margin-top:85px}
+@media(max-width:620px){.paintings-page .painting-gallery .painting-feature + .painting-feature{margin-top:55px}}
