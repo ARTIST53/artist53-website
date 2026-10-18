@@ -1,0 +1,35 @@
+/* Canvas paintings gallery; consistent with ARTIST53 black and gold portfolio */
+.paintings-page .canvas-group{padding:60px 0 90px}
+.paintings-page .canvas-collection{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(275px,.88fr);gap:clamp(24px,5vw,72px);align-items:center}
+.paintings-page .canvas-collection-photo{background:#0b0b0b;display:flex;align-items:center;justify-content:center;min-height:410px}
+.paintings-page .canvas-collection-photo img{display:block;width:100%;height:clamp(320px,46vw,530px);object-fit:contain}
+.paintings-page .canvas-collection-copy h2{font-size:clamp(3rem,5.9vw,5.5rem);line-height:1.03;color:var(--gold);margin:10px 0 20px}
+.paintings-page .canvas-collection-copy p{font-size:1.06rem;line-height:1.7;max-width:550px}
+.paintings-page .canvas-art-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px}
+.paintings-page .canvas-art-card{min-width:0;display:flex;flex-direction:column;text-decoration:none}
+.paintings-page .canvas-art-image{height:360px;background:#0b0b0b;display:flex;align-items:center;justify-content:center}
+.paintings-page .canvas-art-image img{width:100%;height:100%;display:block;object-fit:contain}
+.paintings-page .canvas-art-card h3{font-size:clamp(1.9rem,3vw,2.8rem);color:var(--gold);line-height:1;margin:22px 0 6px}
+.paintings-page .canvas-art-card p{line-height:1.6;margin:5px 0;color:var(--muted)}
+.paintings-page .canvas-art-card .canvas-card-price{font-family:Bebas,Arial,sans-serif;font-size:2.4rem;color:var(--gold);line-height:1.2;margin:12px 0}
+.paintings-page .canvas-art-card .canvas-card-action{color:#fff;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px;margin-top:8px}
+.paintings-page .canvas-series-intro{padding:60px 0 46px}
+.paintings-page .canvas-series-intro .intro{max-width:890px;line-height:1.72}
+.paintings-page .canvas-set{padding:52px 0 88px}
+.paintings-page .canvas-set-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,60px);align-items:center}
+.paintings-page .canvas-set-inner h2{color:var(--gold);font-size:clamp(2.7rem,5vw,4.5rem);line-height:1;margin:8px 0 20px}
+.paintings-page .canvas-set-inner p{line-height:1.7}
+.paintings-page .canvas-set-images{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;background:#0b0b0b;padding:12px}
+.paintings-page .canvas-set-images img{width:100%;height:245px;object-fit:contain}
+.paintings-page .canvas-set-price{font-family:Bebas,Arial,sans-serif;color:var(--gold);font-size:clamp(3.5rem,6.5vw,5.3rem);line-height:1;margin:22px 0 6px}
+.paintings-page .canvas-note{color:var(--muted);font-size:.93rem!important;line-height:1.55!important}
+.paintings-page .canvas-detail-images{padding:48px 0 88px}
+.paintings-page .canvas-detail-images .wrap{max-width:1040px}
+.paintings-page .canvas-detail-images h2{color:var(--gold);font-size:clamp(2.8rem,5vw,4.6rem);margin:0 0 25px}
+.paintings-page .canvas-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.paintings-page .canvas-detail-grid figure{margin:0;background:#0b0b0b;display:flex;align-items:center;justify-content:center}
+.paintings-page .canvas-detail-grid figure img{width:100%;height:clamp(330px,40vw,600px);object-fit:contain}
+.paintings-page .canvas-description p{font-size:1.05rem;line-height:1.75}
+.paintings-page .canvas-description h1{overflow-wrap:anywhere}
+@media(max-width:900px){.paintings-page .canvas-collection,.paintings-page .canvas-set-inner{grid-template-columns:1fr}.paintings-page .canvas-art-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.paintings-page .canvas-set-images img{height:250px}}
+@media(max-width:620px){.paintings-page .canvas-art-grid,.paintings-page .canvas-detail-grid{grid-template-columns:1fr;gap:28px}.paintings-page .canvas-art-image{height:370px}.paintings-page .canvas-collection-photo{min-height:300px}.paintings-page .canvas-collection-photo img{height:360px}.paintings-page .canvas-set-images img{height:150px}.paintings-page .canvas-detail-grid figure img{height:auto;max-height:620px}.paintings-page .canvas-group,.paintings-page .canvas-set{padding:36px 0 70px}}
